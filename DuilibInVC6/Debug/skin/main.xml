@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="800,750" sizebox="4,4,4,4" caption="0,0,0,52" roundcorner="5,5">
+    <VerticalLayout enabled="true" width="300" height="200">
+        <HorizontalLayout enabled="true" width="300" height="52">
+            <VerticalLayout enabled="true" />
+            <VerticalLayout enabled="true" width="80">
+                <Button name="btnMin" float="true" pos="11,20,0,0" enabled="true" width="14" height="15" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="min_n.png" hotimage="min_h.png" pushedimage="min_p.png" disabledimage="min_d.png" />
+                <Button name="btnClose" float="true" pos="45,20,0,0" enabled="true" width="14" height="14" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="close_n.png" hotimage="close_h.png" pushedimage="close_p.png" disabledimage="close_d.png" />
+            </VerticalLayout>
+        </HorizontalLayout>
+    </VerticalLayout>
+</Window>

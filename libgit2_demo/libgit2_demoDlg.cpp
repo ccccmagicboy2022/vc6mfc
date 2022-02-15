@@ -193,6 +193,44 @@ CString GetModuleDir()
 		return csFullPath.Left( nPos ); 
 }
 
+typedef struct  
+{
+	//
+}progress_data;
+
+int fetch_progress(
+				   const git_transfer_progress *stats,
+				   void *payload)
+{
+	CString temp_str;
+
+	progress_data *pd = (progress_data*)payload;
+	/* Do something with network transfer progress */
+	if (stats->received_objects != 0 && stats->total_objects != 0)
+	{
+		temp_str.Format("fetch: %d (%d/%d)", (int)(stats->received_objects*100/stats->total_objects), stats->received_objects, stats->total_objects);
+		TRACE(temp_str);
+	}
+	return 0;
+}
+
+void checkout_progress(
+					   const char *path,
+					   size_t cur,
+					   size_t tot,
+					   void *payload)
+{
+	CString temp_str;
+
+	progress_data *pd = (progress_data*)payload;
+	/* Do something with checkout progress */
+	if (cur != 0 && tot !=0)
+	{
+		temp_str.Format("checkout: %d (%d/%d)", (int)(cur*100/tot) , cur, tot);
+		TRACE(temp_str);
+	}
+}
+
 void CLibgit2_demoDlg::app()
 {
 	CString path;
@@ -212,8 +250,16 @@ void CLibgit2_demoDlg::app()
 // 		TRACE("Error %d/%d: %s\n", error, e->klass, e->message);
 // 	}
 
+	progress_data d = {0};
+
 	git_clone_options opt = GIT_CLONE_OPTIONS_INIT;
 	git_checkout_options checkout_opts = GIT_CHECKOUT_OPTIONS_INIT;
+	checkout_opts.progress_cb = checkout_progress;
+	checkout_opts.progress_payload = &d;
+
+	opt.fetch_opts.callbacks.transfer_progress = fetch_progress;
+	opt.fetch_opts.callbacks.payload = &d;
+
 	opt.bare = false;
 	opt.local = GIT_CLONE_LOCAL;
 	opt.checkout_branch = "master";

@@ -101,8 +101,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,0,0,90
- PRODUCTVERSION 1,0,0,90
+ FILEVERSION 1,0,0,124
+ PRODUCTVERSION 1,0,0,124
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -119,13 +119,13 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "\0"
             VALUE "FileDescription", "libgit2_demo Microsoft 基础类应用程序\0"
-            VALUE "FileVersion", "1, 0, 0, 90\0"
+            VALUE "FileVersion", "1, 0, 0, 124\0"
             VALUE "InternalName", "libgit2_demo\0"
             VALUE "LegalCopyright", "版权所有 (C) 2022\0"
             VALUE "LegalTrademarks", "\0"
             VALUE "OriginalFilename", "libgit2_demo.EXE\0"
             VALUE "ProductName", "libgit2_demo 应用程序\0"
-            VALUE "ProductVersion", "1, 0, 0, 90\0"
+            VALUE "ProductVersion", "1, 0, 0, 124\0"
         END
     END
     BLOCK "VarFileInfo"

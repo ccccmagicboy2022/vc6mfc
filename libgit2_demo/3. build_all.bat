@@ -1,1 +1,1 @@
-MSDEV.EXE burnaxf.dsw /make "all - all" /out build_result.txt
+MSDEV.EXE libgit2_demo.dsw /make "all - all" /out build_result.txt

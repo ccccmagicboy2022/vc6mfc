@@ -1,0 +1,23 @@
+一些VC插件的简介 
+1.         Visual Assist（简称VA）（http://www.wholetomato.com/）
+
+VA从5.0一直到现在的VAX，功能越来越强大，除了以前版本中的自动识别各种关键字，系统函数，成员变量，自动给出输入提示，自动更正大小写错误，自动标示错误等等以外，最新的版本中还在WorkSpace窗口中加入一个VA View，可以更方便的查找工程中的文件、类和变量。有了此工具，大概可以节省输入时间的30％以上。
+
+2.         WndTabs（http://www.wndtabs.com/）
+
+WndTabs主要是在编辑窗口中显示了所有已经打开的文件，在VC中能够更方便的操作这些文件，比如修改文件属性，copy文件路径、文件名等，并且还开放源代码，你要是愿意的话，可以添加自己很兴趣的功能。
+
+3.         LineCounter（http://www.wndtabs.com/）
+
+用来统计整个工程的代码行数，包括总行数、代码行数、注释行数、空行数等，并且对多个工程一起统计时，不会把相同的文件计算多次。它也开放源代码哦！J
+
+4.         Spelly（http://www.wndtabs.com/）
+
+一个拼写检查的插件，可以对整个文件或所选部分进行拼写检查，支持C/C++/C#, VB, Fortran 和HTML。
+
+5.         SourceStyler C++（http://www.sourcestyler.com/）
+
+此插件是针对C++的一个格式化工具，可以针对自己的编码习惯，选择一种编码风格，也可以自己定义，而且定义非常详细，有表达式、指针、模板、类、枚举等十几种，肯定能满足你的需要。
+
+6.   不是VAX，VC6中只支持16中颜色，有一个插件可以修改为24位真彩色，完全可以自己定义。 
+      网址：http://www.codeproject.com/macro/devtruecolour.asp 

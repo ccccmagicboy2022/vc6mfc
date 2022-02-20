@@ -1,0 +1,5 @@
+---==  SourceStyler C++ 1.3.1==---
+
+软件介绍：
+SourceStyler C++ 是一个非常棒的 C/C++ 源代码格式化工具。它内置了多种格式化方案，同时还提供了非常多可定制选项，允许用户自定义代码风格。 
+SourceStyler C++ 可与 Microsoft Visual Studio 6.0 高度集成，允许用户随时方便快速地格式化 C/C++ 源代码。要在 Microsoft Visual Studio 6.0 中使用 SourceStyler C++，请依次执行如下操作: Tools->Customize->Add-ins and Macro Files->勾选 SourceStyler C++ Visual Studio Add-In。 

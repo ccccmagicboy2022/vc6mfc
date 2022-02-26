@@ -1,0 +1,21 @@
+<html>
+<head>
+<script>
+function myFunction()
+{
+	var obj = msgBox("1");
+	var name = obj.name;
+	var age = obj.age;
+	//alert(name);
+	//alert(age);
+	document.getElementById('demo').innerHTML=name;
+	document.getElementById('demo2').innerHTML=age;
+}
+</script>
+</head>
+<body>
+<p id="demo">A Paragraph</p>
+<p id="demo2">B Paragraph</p>
+<button type="button" onclick="myFunction()">Try it</button>
+</body>
+</html>

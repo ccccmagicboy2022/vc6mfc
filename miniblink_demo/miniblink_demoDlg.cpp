@@ -186,9 +186,31 @@ CString GetModuleDir()
 		return csFullPath.Left(nPos);
 }
 
+jsValue	JS_CALL js_Index1(jsExecState	es)
+{
+	jsValue jv = jsEmptyObject(es);
+	jsValue jOv1 = jsStringW(es, L"第一段，大家好！");
+	jsValue jOv2 = jsInt(888);
+	jsSet(es, jv, "name", jOv1);
+	jsSet(es, jv, "age", jOv2);
+	return jv;
+}
+
+jsValue JS_CALL js_msgBox(jsExecState	es)
+{
+	const	wchar_t* FuncIndex = jsToStringW(es, jsArg(es, 0));
+
+	if (wcscmp(FuncIndex, L"1") == 0)
+	{
+		return	js_Index1(es);
+	}
+	return	jsStringW(es, L"0X00");
+}
+
 void Cminiblink_demoDlg::init_miniblink_demo()
 {
 	CString strFileName;
+	CString main_html_name;
 
 	strFileName = GetModuleDir() + "\\node.dll";
 
@@ -196,11 +218,14 @@ void Cminiblink_demoDlg::init_miniblink_demo()
 
 	wkeInitialize();
 
-	wkeWebView window = wkeCreateWebWindow(WKE_WINDOW_TYPE_POPUP, NULL, 0, 0,
-							1080, 680);
+	wkeWebView window = wkeCreateWebWindow(WKE_WINDOW_TYPE_POPUP,
+							this->m_hWnd, 0, 0, 1080, 680);
 	//wkeWebView window = wkeCreateWebWindow(WKE_WINDOW_TYPE_TRANSPARENT, NULL, 0, 0, 1080, 680);
 
-	wkeLoadURL(window, "www.baidu.com");
+	//wkeLoadURL(window, "www.baidu.com");
+	main_html_name = GetModuleDir() + "\\www\\main.html";
+	wkeLoadFile(window, (LPSTR) (LPCTSTR) main_html_name);
+	jsBindFunction("msgBox", js_msgBox, 1);
 
 	wkeShowWindow(window, TRUE);
 }

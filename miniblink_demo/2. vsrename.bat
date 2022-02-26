@@ -1,0 +1,1 @@
+vsrename.exe miniblink_demo miniblink_demoblink_demo .\

@@ -964,6 +964,7 @@ public:
     \
     ITERATOR2(void, wkeSetZoomFactor, wkeWebView webView, float factor, "") \
     ITERATOR1(float, wkeGetZoomFactor, wkeWebView webView, "") \
+	ITERATOR0(void, wkeEnableHighDPISupport, "") \
     \
     ITERATOR2(void, wkeSetEditable, wkeWebView webView, bool editable, "") \
     \

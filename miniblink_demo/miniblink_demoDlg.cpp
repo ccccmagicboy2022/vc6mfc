@@ -207,6 +207,14 @@ jsValue	JS_CALL js_Index1(jsExecState	es)
 	}
 }
 
+jsValue JS_CALL js_Index2(jsExecState es)
+{
+	jsValue jv = jsEmptyObject(es);
+	wkeUpdate();
+	AfxMessageBox("bingo!");
+	return jv;
+}
+
 jsValue JS_CALL js_msgBox(jsExecState	es)
 {
 	const	wchar_t* FuncIndex = jsToStringW(es, jsArg(es, 0));
@@ -214,6 +222,10 @@ jsValue JS_CALL js_msgBox(jsExecState	es)
 	if (wcscmp(FuncIndex, L"1") == 0)
 	{
 		return	js_Index1(es);
+	}
+	else if (wcscmp(FuncIndex, L"2") == 0)
+	{
+		return	js_Index2(es);
 	}
 	return	jsStringW(es, L"0X00");
 }
@@ -230,13 +242,20 @@ void Cminiblink_demoDlg::init_miniblink_demo()
 	wkeInitialize();
 
 	wkeWebView window = wkeCreateWebWindow(WKE_WINDOW_TYPE_POPUP,
-							this->m_hWnd, 0, 0, 1080, 680);
+							this->m_hWnd, 0, 0, 3000, 2000);
+	//wkeWebView window = wkeCreateWebWindow(WKE_WINDOW_TYPE_CONTROL,	this->m_hWnd, 0, 0, 1080, 680);
 	//wkeWebView window = wkeCreateWebWindow(WKE_WINDOW_TYPE_TRANSPARENT, NULL, 0, 0, 1080, 680);
-
 	//wkeLoadURL(window, "www.baidu.com");
+
 	main_html_name = GetModuleDir() + "\\www\\main.html";
 	wkeLoadFile(window, (LPSTR) (LPCTSTR) main_html_name);
 	jsBindFunction("msgBox", js_msgBox, 1);
+
+	wkeSetWindowTitleW(window, L"miniblink_demo_cccc");
+
+	wkeEnableHighDPISupport();
+	wkeSetZoomFactor(window, 2.5f);
+	wkeMoveToCenter(window);
 
 	wkeShowWindow(window, TRUE);
 }

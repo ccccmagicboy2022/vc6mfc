@@ -188,12 +188,23 @@ CString GetModuleDir()
 
 jsValue	JS_CALL js_Index1(jsExecState	es)
 {
-	jsValue jv = jsEmptyObject(es);
-	jsValue jOv1 = jsStringW(es, L"第一段，大家好！");
-	jsValue jOv2 = jsInt(888);
-	jsSet(es, jv, "name", jOv1);
-	jsSet(es, jv, "age", jOv2);
-	return jv;
+	const	wchar_t* Admin = jsToStringW(es, jsArg(es, 1));
+	const	wchar_t* pin = jsToStringW(es, jsArg(es, 2));
+
+	if (wcscmp(Admin, L"cccc") != 0 || wcscmp(pin, L"123") != 0)
+	{
+		jsValue jv = jsEmptyObject(es);
+		jsValue jOv1 = jsInt(1);
+		jsSet(es, jv, "Error", jOv1);
+		return jv;
+	}
+	else
+	{
+		jsValue jv = jsEmptyObject(es);
+		jsValue jOv1 = jsInt(0);
+		jsSet(es, jv, "Error", jOv1);
+		return jv;
+	}
 }
 
 jsValue JS_CALL js_msgBox(jsExecState	es)

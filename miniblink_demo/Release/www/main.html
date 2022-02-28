@@ -1,0 +1,40 @@
+<html>
+<head>
+<script>
+function myFunction2()
+{
+	var obj = msgBox("2");
+}
+
+function myFunction() 
+{
+	var temp = document.getElementById('fname').value;
+	var temp1 = document.getElementById('lname').value;
+	var	obj = msgBox("1", temp, temp1);
+
+	var Er = obj.Error;
+
+	if (Er == 0)
+	{
+		alert("ÕËºÅÃÜÂëÕıÈ·£¡µÇÂ¼³É¹¦");
+	}
+	else
+	{
+		alert("ÕËºÅÃÜÂë´íÎó£¡µÇÂ¼Ê§°Ü");
+	}
+}
+
+</script>
+<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+<div class="demo1">
+	<p>ÕËºÅ£º
+	<input type="text" id="fname" />
+	<p>ÃÜÂë£º
+	<input type="text" id="lname" /><br><br>
+	<button type="button" onclick="myFunction()">µÇÂ¼</button>
+	<button type="button2" onclick="myFunction2()">Ë¢ĞÂ</button>
+</div>
+</body>
+</html>

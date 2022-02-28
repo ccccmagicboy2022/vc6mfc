@@ -230,6 +230,18 @@ jsValue JS_CALL js_msgBox(jsExecState	es)
 	return	jsStringW(es, L"0X00");
 }
 
+jsValue JS_CALL js_click(jsExecState	es)
+{
+	AfxMessageBox("bingo!!!");
+	return	jsStringW(es, L"0X00");
+}
+
+jsValue JS_CALL js_click1(jsExecState	es)
+{
+	AfxMessageBox("bingo!!!111222333");
+	return	jsStringW(es, L"0X00");
+}
+
 void Cminiblink_demoDlg::init_miniblink_demo()
 {
 	CString strFileName;
@@ -250,6 +262,8 @@ void Cminiblink_demoDlg::init_miniblink_demo()
 	main_html_name = GetModuleDir() + "\\www\\main.html";
 	wkeLoadFile(window, (LPSTR) (LPCTSTR) main_html_name);
 	jsBindFunction("msgBox", js_msgBox, 1);
+	jsBindFunction("click", js_click, 0);
+	jsBindFunction("click1", js_click1, 0);
 
 	wkeSetWindowTitleW(window, L"miniblink_demo_cccc");
 

@@ -103,8 +103,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,0,0,116
- PRODUCTVERSION 1,0,0,116
+ FILEVERSION 1,0,0,128
+ PRODUCTVERSION 1,0,0,128
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -121,13 +121,13 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "\0"
             VALUE "FileDescription", "miniblink_demo Microsoft 基础类应用程序\0"
-            VALUE "FileVersion", "1, 0, 0, 116\0"
+            VALUE "FileVersion", "1, 0, 0, 128\0"
             VALUE "InternalName", "miniblink_demo\0"
             VALUE "LegalCopyright", "版权所有 (C) 2018\0"
             VALUE "LegalTrademarks", "\0"
             VALUE "OriginalFilename", "miniblink_demo.EXE\0"
             VALUE "ProductName", "miniblink_demo 应用程序\0"
-            VALUE "ProductVersion", "1, 0, 0, 116\0"
+            VALUE "ProductVersion", "1, 0, 0, 128\0"
         END
     END
     BLOCK "VarFileInfo"

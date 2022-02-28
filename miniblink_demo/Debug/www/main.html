@@ -26,15 +26,29 @@ function myFunction()
 
 </script>
 <link rel="stylesheet" type="text/css" href="index.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/layui/2.4.3/css/layui.css"/>
 </head>
 <body>
 <div class="demo1">
+	<br><br>
 	<p>账号：
 	<input type="text" id="fname" />
+	<br><br>
 	<p>密码：
 	<input type="text" id="lname" /><br><br>
 	<button type="button" onclick="myFunction()">登录</button>
 	<button type="button2" onclick="myFunction2()">刷新</button>
+	<br><br>
+	<button class="layui-btn layui-btn" id="btn">新功能</button>
+    <script>
+		document.getElementById("btn").onclick = click;
+    </script>
+	<button class="layui-btn layui-btn" id="btn1">新功能</button>
+    <script>
+		document.getElementById("btn1").onclick = click1;
+    </script>
 </div>
 </body>
 </html>
+
+

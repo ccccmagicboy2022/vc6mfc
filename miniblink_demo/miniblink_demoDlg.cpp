@@ -271,5 +271,11 @@ void Cminiblink_demoDlg::init_miniblink_demo()
 	wkeSetZoomFactor(window, 2.5f);
 	wkeMoveToCenter(window);
 
+#ifdef _DEBUG
+	wkeShowDevtools(window,
+		L"file:///d:/cccc2020/CODE/workspace/miniblink/miniblink_demo/Debug/front_end/inspector.html",
+		NULL, NULL);
+#endif
+
 	wkeShowWindow(window, TRUE);
 }

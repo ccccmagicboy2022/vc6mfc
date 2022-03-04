@@ -9,6 +9,7 @@
 #endif // _MSC_VER > 1000
 
 /////////////////////////////////////////////////////////////////////////////
+CString GetModuleDir();
 // Cminiblink_demoDlg dialog
 
 class Cminiblink_demoDlg : public CDialog
@@ -39,9 +40,15 @@ protected:
 	afx_msg void OnSysCommand(UINT nID, LPARAM lParam);
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
+	afx_msg void OnSize(UINT nType, int cx, int cy);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+
+public:
 	void init_miniblink_demo();
+	void controls_change_size();
+public:
+	wkeWebView window;
 };
 
 //{{AFX_INSERT_LOCATION}}

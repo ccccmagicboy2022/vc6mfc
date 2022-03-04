@@ -12,22 +12,27 @@ Class1=Cminiblink_demoApp
 Class2=Cminiblink_demoDlg
 Class3=CAboutDlg
 
-ResourceCount=3
+ResourceCount=4
 Resource1=IDD_ABOUTBOX
 Resource2=IDR_MAINFRAME
 Resource3=IDD_miniblink_demo_DIALOG
+Resource4=IDD_DIALOG_BLANK
 
 [CLS:Cminiblink_demoApp]
 Type=0
 HeaderFile=miniblink_demo.h
 ImplementationFile=miniblink_demo.cpp
 Filter=N
+BaseClass=CWinApp
+VirtualFilter=AC
 
 [CLS:Cminiblink_demoDlg]
 Type=0
 HeaderFile=miniblink_demoDlg.h
 ImplementationFile=miniblink_demoDlg.cpp
 Filter=D
+BaseClass=CDialog
+VirtualFilter=dWC
 
 [CLS:CAboutDlg]
 Type=0
@@ -47,5 +52,10 @@ Control4=IDOK,button,1342373889
 [DLG:IDD_miniblink_demo_DIALOG]
 Type=1
 Class=Cminiblink_demoDlg
+ControlCount=0
+
+[DLG:IDD_DIALOG_BLANK]
+Type=1
+Class=?
 ControlCount=0
 

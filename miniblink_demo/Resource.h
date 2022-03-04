@@ -7,6 +7,7 @@
 #define IDD_ABOUTBOX					100
 #define IDS_ABOUTBOX					101
 #define IDD_miniblink_demo_DIALOG				102
+#define IDD_DIALOG_BLANK                103
 
 // Next default values for new objects
 // 

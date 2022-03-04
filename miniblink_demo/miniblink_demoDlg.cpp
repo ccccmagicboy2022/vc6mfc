@@ -68,6 +68,8 @@ Cminiblink_demoDlg::Cminiblink_demoDlg(CWnd* pParent /*=NULL*/) : CDialog(Cminib
 	//}}AFX_DATA_INIT
 	// Note that LoadIcon does not require a subsequent DestroyIcon in Win32
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
+
+	window = NULL;
 }
 
 void Cminiblink_demoDlg::DoDataExchange(CDataExchange* pDX)
@@ -84,6 +86,7 @@ BEGIN_MESSAGE_MAP(Cminiblink_demoDlg, CDialog)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_WM_SIZE()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -119,6 +122,7 @@ BOOL Cminiblink_demoDlg::OnInitDialog()
 
 	// TODO: Add extra initialization here
 	init_miniblink_demo();
+	controls_change_size();
 
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
@@ -253,30 +257,52 @@ void Cminiblink_demoDlg::init_miniblink_demo()
 
 	wkeInitialize();
 
-	//wkeWebView window = wkeCreateWebWindow(WKE_WINDOW_TYPE_POPUP,
+	//this->window = wkeCreateWebWindow(WKE_WINDOW_TYPE_POPUP,
 	//						this->m_hWnd, 0, 0, 3000, 2000);
-	wkeWebView window = wkeCreateWebWindow(WKE_WINDOW_TYPE_CONTROL,
-							GetSafeHwnd(), 0, 0, 1080, 680);
-	//wkeWebView window = wkeCreateWebWindow(WKE_WINDOW_TYPE_TRANSPARENT, NULL, 0, 0, 1080, 680);
+	this->window = wkeCreateWebWindow(WKE_WINDOW_TYPE_CONTROL, GetSafeHwnd(),
+					0, 0, 1024, 768);
+	//this->window = wkeCreateWebWindow(WKE_WINDOW_TYPE_TRANSPARENT, NULL, 0, 0, 1080, 680);
 	//wkeLoadURL(window, "www.baidu.com");
 
 	main_html_name = GetModuleDir() + "\\www\\main.html";
-	wkeLoadFile(window, (LPSTR) (LPCTSTR) main_html_name);
+	wkeLoadFile(this->window, (LPSTR) (LPCTSTR) main_html_name);
 	jsBindFunction("msgBox", js_msgBox, 1);
 	jsBindFunction("click", js_click, 0);
 	jsBindFunction("click1", js_click1, 0);
 
-	wkeSetWindowTitleW(window, L"miniblink_demo_cccc");
+	wkeSetWindowTitleW(this->window, L"miniblink_demo_cccc");
 
 	wkeEnableHighDPISupport();
-	wkeSetZoomFactor(window, 2.5f);
-	//wkeMoveToCenter(window);
+	wkeSetZoomFactor(this->window, 2.5f);
+	//wkeMoveToCenter(this->window);
 
 #ifdef _DEBUG
-	wkeShowDevtools(window,
+	wkeShowDevtools(this->window,
 		L"file:///d:/cccc2020/CODE/workspace/miniblink/miniblink_demo/Debug/front_end/inspector.html",
 		NULL, NULL);
 #endif
 
-	wkeShowWindow(window, TRUE);
+	wkeShowWindow(this->window, TRUE);
+}
+
+void Cminiblink_demoDlg::OnSize(UINT nType, int cx, int cy)
+{
+	CDialog::OnSize(nType, cx, cy);
+	if (nType == 1)
+		return;//最小化则什么都不做
+	controls_change_size();
+}
+
+void Cminiblink_demoDlg::controls_change_size()
+{
+	CRect rc;
+	GetClientRect(rc);
+
+	if (this->GetSafeHwnd())
+	{
+		if (window)
+		{
+			wkeResizeWindow(this->window, rc.Width(), rc.Height());
+		}
+	}
 }

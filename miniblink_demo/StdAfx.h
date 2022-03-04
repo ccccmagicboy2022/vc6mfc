@@ -30,6 +30,18 @@
 
 //miniblink_demoblink
 #include ".\3rd_part\miniblink\wke.h"
+//debug pro
+#ifdef _DEBUG
+#include "3rd_part\xtracestd\xtrace.h"
+#include "3rd_part\xtracestd\xtracestd.h"
+#endif
+//skin
+#pragma comment(lib, ".\\3rd_part\\SkinH\\SkinH.lib")
+#include "3rd_part/SkinH/SkinH.h"
+
+
+//
+
 
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Visual C++ will insert additional declarations immediately before the previous line.

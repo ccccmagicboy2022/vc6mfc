@@ -43,6 +43,7 @@ BOOL Cminiblink_demoApp::InitInstance()
 {
 	AfxEnableControlContainer();
 
+	init_skin();
 	// Standard initialization
 	// If you are not using these features and wish to reduce the size
 	//  of your final executable, you should remove from the following
@@ -71,4 +72,21 @@ BOOL Cminiblink_demoApp::InitInstance()
 	// Since the dialog has been closed, return FALSE so that we exit the
 	//  application, rather than start the application's message pump.
 	return FALSE;
+}
+
+extern CString GetModuleDir();
+
+void Cminiblink_demoApp::init_skin()
+{
+	CString temp_str;
+	temp_str = GetModuleDir() + "\\miniblink_demo.she";
+	SkinH_Attach_Ex((LPSTR) (LPCTSTR) temp_str, NULL);
+}
+
+int Cminiblink_demoApp::ExitInstance()
+{
+	// TODO: Add your specialized code here and/or call the base class
+	SkinH_Detach();
+
+	return CWinApp::ExitInstance();
 }

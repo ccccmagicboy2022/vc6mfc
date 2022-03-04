@@ -87,6 +87,8 @@ BEGIN_MESSAGE_MAP(Cminiblink_demoDlg, CDialog)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_WM_SIZE()
+	ON_WM_GETMINMAXINFO()
+	ON_WM_CLOSE()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -305,4 +307,45 @@ void Cminiblink_demoDlg::controls_change_size()
 			wkeResizeWindow(this->window, rc.Width(), rc.Height());
 		}
 	}
+}
+
+void Cminiblink_demoDlg::OnGetMinMaxInfo(MINMAXINFO FAR* lpMMI)
+{
+	CPoint pt(1024, 768);		//
+	lpMMI-> ptMinTrackSize = pt;	//
+	CDialog::OnGetMinMaxInfo(lpMMI);
+}
+
+void Cminiblink_demoDlg::OnCancel()
+{
+	OnClose();
+}
+
+void Cminiblink_demoDlg::OnOK()
+{
+	//
+}
+
+void Cminiblink_demoDlg::OnClose()
+{
+	DWORD result;
+	result = MessageBox(_T("Are you sure? "), _T("exit"),
+				MB_OKCANCEL | MB_SYSTEMMODAL | MB_ICONQUESTION | MB_DEFBUTTON2);
+
+	switch (result)
+	{
+	case IDOK:
+		//
+		CDialog::OnClose();
+		DestroyWindow();
+		break;
+	case IDCANCEL:
+		//
+		break;
+	}
+}
+
+void Cminiblink_demoDlg::WinHelp(DWORD dwData, UINT nCmd)
+{
+	//
 }

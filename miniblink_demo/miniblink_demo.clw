@@ -47,7 +47,5 @@ Control4=IDOK,button,1342373889
 [DLG:IDD_miniblink_demo_DIALOG]
 Type=1
 Class=Cminiblink_demoDlg
-ControlCount=2
-Control1=IDOK,button,1342242817
-Control2=IDCANCEL,button,1342242816
+ControlCount=0
 

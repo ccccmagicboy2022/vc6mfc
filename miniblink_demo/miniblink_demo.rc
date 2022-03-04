@@ -85,14 +85,13 @@ BEGIN
     DEFPUSHBUTTON   "确定",IDOK,178,7,50,14,WS_GROUP
 END
 
-IDD_miniblink_demo_DIALOG DIALOGEX 0, 0, 320, 200
-STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+IDD_miniblink_demo_DIALOG DIALOGEX 0, 0, 321, 200
+STYLE WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU | WS_THICKFRAME
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "miniblink_demo"
 FONT 9, "宋体"
 BEGIN
-    DEFPUSHBUTTON   "确定",IDOK,260,7,50,14
-    PUSHBUTTON      "取消",IDCANCEL,260,23,50,14
 END
 
 
@@ -103,8 +102,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,0,0,133
- PRODUCTVERSION 1,0,0,133
+ FILEVERSION 1,0,0,143
+ PRODUCTVERSION 1,0,0,143
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -121,13 +120,13 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "\0"
             VALUE "FileDescription", "miniblink_demo Microsoft 基础类应用程序\0"
-            VALUE "FileVersion", "1, 0, 0, 133\0"
+            VALUE "FileVersion", "1, 0, 0, 143\0"
             VALUE "InternalName", "miniblink_demo\0"
             VALUE "LegalCopyright", "版权所有 (C) 2018\0"
             VALUE "LegalTrademarks", "\0"
             VALUE "OriginalFilename", "miniblink_demo.EXE\0"
             VALUE "ProductName", "miniblink_demo 应用程序\0"
-            VALUE "ProductVersion", "1, 0, 0, 133\0"
+            VALUE "ProductVersion", "1, 0, 0, 143\0"
         END
     END
     BLOCK "VarFileInfo"
@@ -158,7 +157,7 @@ BEGIN
     IDD_miniblink_demo_DIALOG, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 313
+        RIGHTMARGIN, 314
         TOPMARGIN, 7
         BOTTOMMARGIN, 193
     END

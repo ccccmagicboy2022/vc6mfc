@@ -253,9 +253,10 @@ void Cminiblink_demoDlg::init_miniblink_demo()
 
 	wkeInitialize();
 
-	wkeWebView window = wkeCreateWebWindow(WKE_WINDOW_TYPE_POPUP,
-							this->m_hWnd, 0, 0, 3000, 2000);
-	//wkeWebView window = wkeCreateWebWindow(WKE_WINDOW_TYPE_CONTROL,	this->m_hWnd, 0, 0, 1080, 680);
+	//wkeWebView window = wkeCreateWebWindow(WKE_WINDOW_TYPE_POPUP,
+	//						this->m_hWnd, 0, 0, 3000, 2000);
+	wkeWebView window = wkeCreateWebWindow(WKE_WINDOW_TYPE_CONTROL,
+							GetSafeHwnd(), 0, 0, 1080, 680);
 	//wkeWebView window = wkeCreateWebWindow(WKE_WINDOW_TYPE_TRANSPARENT, NULL, 0, 0, 1080, 680);
 	//wkeLoadURL(window, "www.baidu.com");
 
@@ -269,7 +270,7 @@ void Cminiblink_demoDlg::init_miniblink_demo()
 
 	wkeEnableHighDPISupport();
 	wkeSetZoomFactor(window, 2.5f);
-	wkeMoveToCenter(window);
+	//wkeMoveToCenter(window);
 
 #ifdef _DEBUG
 	wkeShowDevtools(window,

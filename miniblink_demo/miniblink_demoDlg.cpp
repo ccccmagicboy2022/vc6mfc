@@ -277,6 +277,8 @@ void Cminiblink_demoDlg::init_miniblink_demo()
 	wkeEnableHighDPISupport();
 	wkeSetZoomFactor(this->window, 2.5f);
 	//wkeMoveToCenter(this->window);
+	wkeSetDragEnable(this->window, false);
+	wkeSetDragDropEnable(this->window, false);
 
 #ifdef _DEBUG
 	wkeShowDevtools(this->window,

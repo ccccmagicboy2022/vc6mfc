@@ -6,6 +6,9 @@ body
 	width:100%;
 	overflow: hidden;
 	background-size:cover;
+	-moz-user-select  : none;
+	-khtml-user-select: none;
+	user-select       : none;
 }
 .stretch { 
     width:100%; 

@@ -6,9 +6,11 @@ body
 	width:100%;
 	overflow: hidden;
 	background-size:cover;
+	-webkit-user-select: none;
 	-moz-user-select  : none;
 	-khtml-user-select: none;
 	user-select       : none;
+	-ms-user-select: none;
 }
 .stretch { 
     width:100%; 

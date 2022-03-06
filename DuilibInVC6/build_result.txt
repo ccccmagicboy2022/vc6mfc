@@ -1,0 +1,57 @@
+--------------------Configuration: DuilibInVC6 - Win32 Debug--------------------
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+DuilibInVC6.cpp
+DuilibInVC6Dlg.cpp
+MainDui.cpp
+Generating Code...
+Linking...
+DuilibInVC6.obj : warning LNK4044: unrecognized option "manifestdependency:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='x86' publicKeyToken='6595b64144ccf1df' language='*'"; ignored
+DuilibInVC6Dlg.obj : warning LNK4044: unrecognized option "manifestdependency:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='x86' publicKeyToken='6595b64144ccf1df' language='*'"; ignored
+MainDui.obj : warning LNK4044: unrecognized option "manifestdependency:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='x86' publicKeyToken='6595b64144ccf1df' language='*'"; ignored
+Creating browse info file...
+
+DuilibInVC6.exe - 0 error(s), 3 warning(s)
+--------------------Configuration: DuilibInVC6 - Win32 Release--------------------
+Compiling resources...
+Compiling...
+StdAfx.cpp
+d:\cccc2020\CODE\workspace\duilib\DuilibInVC6\stdafx.h(29) : warning C4083: expected ')'; found identifier 'LNK4044'
+Compiling...
+DuilibInVC6.cpp
+d:\cccc2020\CODE\workspace\duilib\DuilibInVC6\DuiLib/Core/UIBase.h(56) : warning C4251: '_messageEntries' : struct 'DuiLib::DUI_MSGMAP_ENTRY' needs to have dll-interface to be used by clients of class 'DuiLib::CNotifyPump'
+        d:\cccc2020\CODE\workspace\duilib\DuilibInVC6\DuiLib/Core/UIDefine.h(95) : see declaration of 'DUI_MSGMAP_ENTRY'
+d:\cccc2020\CODE\workspace\duilib\DuilibInVC6\DuiLib/Utils/WinImplBase.h(30) : warning C4251: '_messageEntries' : struct 'DuiLib::DUI_MSGMAP_ENTRY' needs to have dll-interface to be used by clients of class 'DuiLib::WindowImplBase'
+        d:\cccc2020\CODE\workspace\duilib\DuilibInVC6\DuiLib/Core/UIDefine.h(95) : see declaration of 'DUI_MSGMAP_ENTRY'
+d:\cccc2020\CODE\workspace\duilib\DuilibInVC6\DuiLib/Control/UIList.h(203) : warning C4251: 'm_ListInfo' : struct 'DuiLib::tagTListInfoUI' needs to have dll-interface to be used by clients of class 'DuiLib::CListUI'
+        d:\cccc2020\CODE\workspace\duilib\DuilibInVC6\DuiLib/Control/UIList.h(20) : see declaration of 'tagTListInfoUI'
+d:\cccc2020\CODE\workspace\duilib\DuilibInVC6\DuiLib/Control/UICombo.h(124) : warning C4251: 'm_ListInfo' : struct 'DuiLib::tagTListInfoUI' needs to have dll-interface to be used by clients of class 'DuiLib::CComboUI'
+        d:\cccc2020\CODE\workspace\duilib\DuilibInVC6\DuiLib/Control/UIList.h(20) : see declaration of 'tagTListInfoUI'
+DuilibInVC6Dlg.cpp
+d:\cccc2020\CODE\workspace\duilib\DuilibInVC6\DuiLib/Core/UIBase.h(56) : warning C4251: '_messageEntries' : struct 'DuiLib::DUI_MSGMAP_ENTRY' needs to have dll-interface to be used by clients of class 'DuiLib::CNotifyPump'
+        d:\cccc2020\CODE\workspace\duilib\DuilibInVC6\DuiLib/Core/UIDefine.h(95) : see declaration of 'DUI_MSGMAP_ENTRY'
+d:\cccc2020\CODE\workspace\duilib\DuilibInVC6\DuiLib/Utils/WinImplBase.h(30) : warning C4251: '_messageEntries' : struct 'DuiLib::DUI_MSGMAP_ENTRY' needs to have dll-interface to be used by clients of class 'DuiLib::WindowImplBase'
+        d:\cccc2020\CODE\workspace\duilib\DuilibInVC6\DuiLib/Core/UIDefine.h(95) : see declaration of 'DUI_MSGMAP_ENTRY'
+d:\cccc2020\CODE\workspace\duilib\DuilibInVC6\DuiLib/Control/UIList.h(203) : warning C4251: 'm_ListInfo' : struct 'DuiLib::tagTListInfoUI' needs to have dll-interface to be used by clients of class 'DuiLib::CListUI'
+        d:\cccc2020\CODE\workspace\duilib\DuilibInVC6\DuiLib/Control/UIList.h(20) : see declaration of 'tagTListInfoUI'
+d:\cccc2020\CODE\workspace\duilib\DuilibInVC6\DuiLib/Control/UICombo.h(124) : warning C4251: 'm_ListInfo' : struct 'DuiLib::tagTListInfoUI' needs to have dll-interface to be used by clients of class 'DuiLib::CComboUI'
+        d:\cccc2020\CODE\workspace\duilib\DuilibInVC6\DuiLib/Control/UIList.h(20) : see declaration of 'tagTListInfoUI'
+MainDui.cpp
+d:\cccc2020\CODE\workspace\duilib\DuilibInVC6\DuiLib/Core/UIBase.h(56) : warning C4251: '_messageEntries' : struct 'DuiLib::DUI_MSGMAP_ENTRY' needs to have dll-interface to be used by clients of class 'DuiLib::CNotifyPump'
+        d:\cccc2020\CODE\workspace\duilib\DuilibInVC6\DuiLib/Core/UIDefine.h(95) : see declaration of 'DUI_MSGMAP_ENTRY'
+d:\cccc2020\CODE\workspace\duilib\DuilibInVC6\DuiLib/Utils/WinImplBase.h(30) : warning C4251: '_messageEntries' : struct 'DuiLib::DUI_MSGMAP_ENTRY' needs to have dll-interface to be used by clients of class 'DuiLib::WindowImplBase'
+        d:\cccc2020\CODE\workspace\duilib\DuilibInVC6\DuiLib/Core/UIDefine.h(95) : see declaration of 'DUI_MSGMAP_ENTRY'
+d:\cccc2020\CODE\workspace\duilib\DuilibInVC6\DuiLib/Control/UIList.h(203) : warning C4251: 'm_ListInfo' : struct 'DuiLib::tagTListInfoUI' needs to have dll-interface to be used by clients of class 'DuiLib::CListUI'
+        d:\cccc2020\CODE\workspace\duilib\DuilibInVC6\DuiLib/Control/UIList.h(20) : see declaration of 'tagTListInfoUI'
+d:\cccc2020\CODE\workspace\duilib\DuilibInVC6\DuiLib/Control/UICombo.h(124) : warning C4251: 'm_ListInfo' : struct 'DuiLib::tagTListInfoUI' needs to have dll-interface to be used by clients of class 'DuiLib::CComboUI'
+        d:\cccc2020\CODE\workspace\duilib\DuilibInVC6\DuiLib/Control/UIList.h(20) : see declaration of 'tagTListInfoUI'
+Generating Code...
+Linking...
+DuilibInVC6.obj : warning LNK4044: unrecognized option "manifestdependency:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='x86' publicKeyToken='6595b64144ccf1df' language='*'"; ignored
+DuilibInVC6Dlg.obj : warning LNK4044: unrecognized option "manifestdependency:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='x86' publicKeyToken='6595b64144ccf1df' language='*'"; ignored
+MainDui.obj : warning LNK4044: unrecognized option "manifestdependency:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='x86' publicKeyToken='6595b64144ccf1df' language='*'"; ignored
+LINK : warning LNK4089: all references to "SHELL32.dll" discarded by /OPT:REF
+
+DuilibInVC6.exe - 0 error(s), 17 warning(s)

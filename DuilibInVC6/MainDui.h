@@ -20,24 +20,31 @@ using namespace DuiLib;
 #endif
 
 
-class CMainDui:public CWindowWnd,INotifyUI
+class CMainDui : public CWindowWnd, INotifyUI
 {
 public:
 	CMainDui();
 	~CMainDui();
 
-	LPCTSTR GetWindowClassName() const { return _T("µÇÂ¼´°¿Ú"); };
-	UINT GetClassStyle() const { return CS_DBLCLKS; };
+	LPCTSTR GetWindowClassName() const
+	{
+		return _T("demo");
+	};
+	UINT GetClassStyle() const
+	{
+		return CS_DBLCLKS;
+	};
 	void Notify(TNotifyUI& msg);
 	LRESULT OnCreate(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
-	LRESULT OnSysCommand(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
+	LRESULT OnSysCommand(UINT uMsg, WPARAM wParam, LPARAM lParam,
+		BOOL& bHandled);
 	LRESULT HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam);
 public:
-	void SetParent(void * pParent);
+	void SetParent(void* pParent);
 public:
 	CButtonUI* m_btnMin;
 	CButtonUI* m_btnClose;
 private:
 	CPaintManagerUI m_pm;
-	void * m_pParent;
+	void* m_pParent;
 };

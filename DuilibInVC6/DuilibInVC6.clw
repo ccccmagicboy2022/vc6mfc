@@ -28,6 +28,8 @@ Type=0
 HeaderFile=DuilibInVC6Dlg.h
 ImplementationFile=DuilibInVC6Dlg.cpp
 Filter=D
+BaseClass=CDialog
+VirtualFilter=dWC
 
 [CLS:CAboutDlg]
 Type=0

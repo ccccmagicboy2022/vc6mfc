@@ -1,6 +1,6 @@
 // stdafx.h : include file for standard system include files,
 //  or project specific include files that are used frequently, but
-//      are changed infrequently
+//  	are changed infrequently
 //
 
 #if !defined(AFX_STDAFX_H__89EC98F5_D156_4CF8_991F_389EA8B56BCF__INCLUDED_)
@@ -12,9 +12,9 @@
 
 #define VC_EXTRALEAN		// Exclude rarely-used stuff from Windows headers
 
-#include <afxwin.h>         // MFC core and standard components
-#include <afxext.h>         // MFC extensions
-#include <afxdisp.h>        // MFC Automation classes
+#include <afxwin.h> 		// MFC core and standard components
+#include <afxext.h> 		// MFC extensions
+#include <afxdisp.h>		// MFC Automation classes
 #include <afxdtctl.h>		// MFC support for Internet Explorer 4 Common Controls
 #ifndef _AFX_NO_AFXCMN_SUPPORT
 #include <afxcmn.h>			// MFC support for Windows Common Controls
@@ -24,6 +24,10 @@
 #define ULONG_PTR unsigned long*
 #endif
 #include <gdiplus.h>
+
+//LNK4044
+#pragma warning(disable:LNK4044)
+
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Visual C++ will insert additional declarations immediately before the previous line.
 

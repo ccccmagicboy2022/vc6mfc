@@ -19,7 +19,7 @@ class CAboutDlg : public CDialog
 public:
 	CAboutDlg();
 
-// Dialog Data
+	// Dialog Data
 	//{{AFX_DATA(CAboutDlg)
 	enum { IDD = IDD_ABOUTBOX };
 	//}}AFX_DATA
@@ -27,10 +27,10 @@ public:
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CAboutDlg)
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV support
 	//}}AFX_VIRTUAL
 
-// Implementation
+	// Implementation
 protected:
 	//{{AFX_MSG(CAboutDlg)
 	//}}AFX_MSG
@@ -41,6 +41,7 @@ CAboutDlg::CAboutDlg() : CDialog(CAboutDlg::IDD)
 {
 	//{{AFX_DATA_INIT(CAboutDlg)
 	//}}AFX_DATA_INIT
+
 }
 
 void CAboutDlg::DoDataExchange(CDataExchange* pDX)
@@ -48,6 +49,7 @@ void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CAboutDlg)
 	//}}AFX_DATA_MAP
+
 }
 
 BEGIN_MESSAGE_MAP(CAboutDlg, CDialog)
@@ -59,8 +61,7 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CDuilibInVC6Dlg dialog
 
-CDuilibInVC6Dlg::CDuilibInVC6Dlg(CWnd* pParent /*=NULL*/)
-	: CDialog(CDuilibInVC6Dlg::IDD, pParent)
+CDuilibInVC6Dlg::CDuilibInVC6Dlg(CWnd* pParent /*=NULL*/) : CDialog(CDuilibInVC6Dlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CDuilibInVC6Dlg)
 		// NOTE: the ClassWizard will add member initialization here
@@ -74,6 +75,7 @@ void CDuilibInVC6Dlg::DoDataExchange(CDataExchange* pDX)
 	//{{AFX_DATA_MAP(CDuilibInVC6Dlg)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
+
 }
 
 BEGIN_MESSAGE_MAP(CDuilibInVC6Dlg, CDialog)
@@ -81,6 +83,7 @@ BEGIN_MESSAGE_MAP(CDuilibInVC6Dlg, CDialog)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_WM_CLOSE()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -111,14 +114,14 @@ BOOL CDuilibInVC6Dlg::OnInitDialog()
 
 	SetIcon(m_hIcon, TRUE);			// Set big icon
 	SetIcon(m_hIcon, FALSE);		// Set small icon
-	
+
 	// TODO: Add extra initialization here
-	
-	m_MainDui.Create(*this, _T("主界面"), UI_WNDSTYLE_CHILD, 0, 0, 0, 300, 200); 
+
+	m_MainDui.Create(*this, _T("主界面"), UI_WNDSTYLE_CHILD, 0, 0, 0, 800, 600); 
 	m_MainDui.ShowWindow(TRUE);
-	m_MainDui.SetParent((void*)this);
+	m_MainDui.SetParent((void *)this);
 	ModifyStyle(0, WS_MINIMIZEBOX);
-	MoveWindow(0, 0, 300, 200);
+	MoveWindow(0, 0, 800, 600);
 	CenterWindow();
 
 	return TRUE;  // return TRUE  unless you set the focus to a control
@@ -141,7 +144,7 @@ void CDuilibInVC6Dlg::OnSysCommand(UINT nID, LPARAM lParam)
 //  to draw the icon.  For MFC applications using the document/view model,
 //  this is automatically done for you by the framework.
 
-void CDuilibInVC6Dlg::OnPaint() 
+void CDuilibInVC6Dlg::OnPaint()
 {
 	if (IsIconic())
 	{
@@ -169,4 +172,33 @@ void CDuilibInVC6Dlg::OnPaint()
 HCURSOR CDuilibInVC6Dlg::OnQueryDragIcon()
 {
 	return (HCURSOR) m_hIcon;
+}
+
+void CDuilibInVC6Dlg::OnClose()
+{
+	DWORD result;
+	result = MessageBox(_T("Are you sure? "), _T("exit"),
+				MB_OKCANCEL | MB_SYSTEMMODAL | MB_ICONQUESTION | MB_DEFBUTTON2);
+
+	switch (result)
+	{
+	case IDOK:
+		//
+		CDialog::OnClose();
+		DestroyWindow();
+		break;
+	case IDCANCEL:
+		//
+		break;
+	}
+}
+
+void CDuilibInVC6Dlg::OnCancel()
+{
+	OnClose();
+}
+
+void CDuilibInVC6Dlg::OnOK()
+{
+	//
 }

@@ -1,1 +1,1 @@
-MSDEV.EXE burnhex.dsw /make "all - all" /out build_result.txt
+MSDEV.EXE DuilibInVC6.dsw /make "all - all" /out build_result.txt

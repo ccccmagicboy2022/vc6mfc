@@ -15,11 +15,11 @@
 
 class CDuilibInVC6Dlg : public CDialog
 {
-// Construction
+	// Construction
 public:
 	CDuilibInVC6Dlg(CWnd* pParent = NULL);	// standard constructor
 
-// Dialog Data
+	// Dialog Data
 	//{{AFX_DATA(CDuilibInVC6Dlg)
 	enum { IDD = IDD_DUILIBINVC6_DIALOG };
 		// NOTE: the ClassWizard will add data members here
@@ -33,7 +33,7 @@ public:
 
 	CMainDui m_MainDui;
 
-// Implementation
+	// Implementation
 protected:
 	HICON m_hIcon;
 
@@ -43,6 +43,9 @@ protected:
 	afx_msg void OnSysCommand(UINT nID, LPARAM lParam);
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
+	afx_msg void OnClose();
+	afx_msg void OnCancel();
+	afx_msg void OnOK();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

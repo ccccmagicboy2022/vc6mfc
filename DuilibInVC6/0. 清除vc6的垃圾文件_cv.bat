@@ -17,3 +17,6 @@ rd /s /q rtf
 del /s /q *.bsc
 del /s /q *.tlh
 del /s /q *.tli
+del /s /q *.bak
+
+

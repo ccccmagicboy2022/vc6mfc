@@ -1,11 +1,16 @@
-<html>
+<!doctype html>
+<html lang="zh">
 <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<link rel="stylesheet" href="bootstrap.min.css" crossorigin="anonymous">
+	<title>miniblink_demo</title>
 <script>
 function myFunction2()
 {
 	var obj = msgBox("2");
 }
-
 function myFunction() 
 {
 	var temp = document.getElementById('fname').value;
@@ -16,49 +21,77 @@ function myFunction()
 
 	if (Er == 0)
 	{
-		alert("ÕËºÅÃÜÂëÕıÈ·£¡µÇÂ¼³É¹¦");
+		alert("æ­£ç¡®");
 	}
 	else
 	{
-		alert("ÕËºÅÃÜÂë´íÎó£¡µÇÂ¼Ê§°Ü");
+		alert("é”™è¯¯");
 	}
 }
-
 </script>
-<script>
-document.ondrop = function(event) {
-return false;
-};
-document.ondragenter  = function(event) {
-return false;
-};
-document.ondragover  = function(event) {
-return false;
-};
-
-</script>
-<link rel="stylesheet" type="text/css" href="index.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/layui/2.4.3/css/layui.css"/>
 </head>
 <body>
+	<div class="container bg-dark">
+		<div	class="row">
+			<div class="col border bg-light p-3">1</div>
+		</div>
+		<div	class="row">
+			<div class="col border bg-light p-3">1</div>
+			<div class="col border bg-light p-3">2</div>
+		</div>
+		<div	class="row">
+			<div class="col border bg-light p-3">1</div>
+			<div class="col border bg-light p-3">2</div>
+			<div class="col border bg-light p-3">3</div>
+		</div>
+		<div	class="row">
+			<div class="col border bg-light p-3">1</div>
+			<div class="col-6 border bg-light p-3">2</div>
+			<div class="col border bg-light p-3">3</div>
+		</div>
+		<div	class="row">
+			<div class="col col-xl-10 col-gl-8 col-md-6 col-sm-4 border bg-light p-3">1</div>
+		</div>
+		<div	class="row">
+			<div class="col col-xl-12 col-gl-10 col-md-8 col-sm-6 border bg-light p-3">1</div>
+		</div>
+		<div	class="row">
+			<div class="col-12 col-xl-6 col-gl-6 col-md-12 col-sm-12 border bg-warning p-3">1</div>
+			<div class="col-12 col-xl-6 col-gl-6 col-md-12 col-sm-12 border bg-info p-3">2</div>
+		</div>
+	</div>
 <div class="demo1">
+	<h1 class="text-danger">Hello, world!</h1>
+	<h2 class="text-danger">ä½ å¥½å—!</h2>
 	<br><br>
-	<p>ÕËºÅ£º
+	<p>å§“å
 	<input type="text" id="fname" />
 	<br><br>
-	<p>ÃÜÂë£º
+	<p>å¯†ç 
 	<input type="text" id="lname" /><br><br>
-	<button type="button" onclick="myFunction()">µÇÂ¼</button>
-	<button type="button2" onclick="myFunction2()">Ë¢ĞÂ</button>
+	<button type="button" onclick="myFunction()">ç™»å½•</button>
+	<button type="button2" onclick="myFunction2()">åˆ·æ–°</button>
 	<br><br>
-	<button class="layui-btn layui-btn" id="btn">ĞÂ¹¦ÄÜ</button>
+	<button class="btn btn-success" id="btn">æ–°åŠŸèƒ½1</button>
     <script>
 		document.getElementById("btn").onclick = click;
     </script>
-	<button class="layui-btn layui-btn" id="btn1">ĞÂ¹¦ÄÜ</button>
+	<button class="btn btn-success" id="btn1">æ–°åŠŸèƒ½2</button>
     <script>
 		document.getElementById("btn1").onclick = click1;
-    </script>
+	</script>
+	<script src="bootstrap.bundle.min.js"></script>
+	<hr>
+	<p style="text-align: center;">çª—å£å®½åº¦ï¼š<span id="width"></span></p>
+	<script>
+		var widthOutput = document.querySelector('#width');
+		function resize()
+		{
+			widthOutput.textContent = window.innerWidth;
+		}
+		window.onresize = resize;
+		resize();
+	</script>
 </div>
 </body>
 </html>

@@ -1,0 +1,1 @@
+MSDEV.EXE wxwork_mail.dsw /make "all - all" /out build_result.txt

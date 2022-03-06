@@ -1,0 +1,1 @@
+vsrename.exe wxwork_mail wxwork_mail .\

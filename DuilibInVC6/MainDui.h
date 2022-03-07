@@ -3,23 +3,6 @@
 #include "DuiLib/UIlib.h"
 using namespace DuiLib;
 
-
-#ifdef _DEBUG
-# ifdef _UNICODE//引用类库lib文件
-# pragma comment(lib, "DuiLib/DuiLib_ud.lib")
-# else
-# pragma comment(lib, "DuiLib/DuiLib_d.lib")
-# endif
-
-#else
-# ifdef _UNICODE
-# pragma comment(lib, "DuiLib/DuiLib_u.lib")
-# else
-# pragma comment(lib, "DuiLib/DuiLib.lib")
-# endif
-#endif
-
-
 class CMainDui : public CWindowWnd, INotifyUI
 {
 public:

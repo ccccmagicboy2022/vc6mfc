@@ -1,1 +1,4 @@
 MSDEV.EXE DuilibInVC6.dsw /make "all - all" /out build_result.txt
+pause
+
+

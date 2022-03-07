@@ -26,7 +26,27 @@
 #include <gdiplus.h>
 
 //LNK4044
-#pragma warning(disable:LNK4044)
+#pragma warning(disable: 4044)
+//C4251
+#pragma warning(disable: 4251)
+//LNK4089
+#pragma warning(disable: 4089)
+
+//duilib
+#ifdef _DEBUG
+# ifdef _UNICODE//引用类库lib文件
+# pragma comment(lib, "DuiLib/DuiLib_ud.lib")
+# else
+# pragma comment(lib, "DuiLib/DuiLib_d.lib")
+# endif
+
+#else
+# ifdef _UNICODE
+# pragma comment(lib, "DuiLib/DuiLib_u.lib")
+# else
+# pragma comment(lib, "DuiLib/DuiLib.lib")
+# endif
+#endif
 
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Visual C++ will insert additional declarations immediately before the previous line.

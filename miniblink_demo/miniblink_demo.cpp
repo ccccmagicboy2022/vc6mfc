@@ -43,7 +43,7 @@ BOOL Cminiblink_demoApp::InitInstance()
 {
 	AfxEnableControlContainer();
 
-	init_skin();
+	//init_skin();
 	// Standard initialization
 	// If you are not using these features and wish to reduce the size
 	//  of your final executable, you should remove from the following
@@ -86,7 +86,7 @@ void Cminiblink_demoApp::init_skin()
 int Cminiblink_demoApp::ExitInstance()
 {
 	// TODO: Add your specialized code here and/or call the base class
-	SkinH_Detach();
+	//SkinH_Detach();
 
 	return CWinApp::ExitInstance();
 }

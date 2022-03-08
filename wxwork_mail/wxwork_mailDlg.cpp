@@ -283,6 +283,7 @@ void Cwxwork_mailDlg::init_wxwork_mail()
 	wkeSetLocalStorageFullPath(this->window, L"c:\\temp");
 	//final show
 	wkeShowWindow(this->window, TRUE);
+	ShowWindow(SW_SHOWMAXIMIZED);
 }
 
 void Cwxwork_mailDlg::OnSize(UINT nType, int cx, int cy)

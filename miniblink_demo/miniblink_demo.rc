@@ -61,6 +61,13 @@ END
 
 /////////////////////////////////////////////////////////////////////////////
 //
+// 24
+//
+
+1                       24      MOVEABLE PURE   "XPStyle.manifest"
+
+/////////////////////////////////////////////////////////////////////////////
+//
 // Icon
 //
 
@@ -85,11 +92,10 @@ BEGIN
     DEFPUSHBUTTON   "È·¶¨",IDOK,178,7,50,14,WS_GROUP
 END
 
-IDD_miniblink_demo_DIALOG DIALOGEX 0, 0, 321, 200
-STYLE WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
-    WS_SYSMENU | WS_THICKFRAME
+IDD_miniblink_demo_DIALOG DIALOGEX 0, 0, 322, 203
+STYLE WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_VISIBLE | WS_CLIPSIBLINGS | 
+    WS_CLIPCHILDREN | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
 EXSTYLE WS_EX_APPWINDOW
-CAPTION "miniblink_demo"
 FONT 9, "ËÎÌå"
 BEGIN
 END
@@ -163,9 +169,9 @@ BEGIN
     IDD_miniblink_demo_DIALOG, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 314
+        RIGHTMARGIN, 315
         TOPMARGIN, 7
-        BOTTOMMARGIN, 193
+        BOTTOMMARGIN, 196
     END
 END
 #endif    // APSTUDIO_INVOKED

@@ -21,5 +21,6 @@ miniblink_demoDlg.cpp
 xtrace.cpp
 Generating Code...
 Linking...
+LINK : warning LNK4089: all references to "SkinH.dll" discarded by /OPT:REF
 
-miniblink_demo.exe - 0 error(s), 0 warning(s)
+miniblink_demo.exe - 0 error(s), 1 warning(s)

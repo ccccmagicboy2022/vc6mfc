@@ -275,7 +275,7 @@ void Cminiblink_demoDlg::init_miniblink_demo()
 	wkeSetWindowTitleW(this->window, L"miniblink_demo_cccc");
 
 	wkeEnableHighDPISupport();
-	wkeSetZoomFactor(this->window, 2.5f);
+	wkeSetZoomFactor(this->window, 2.0f);
 	//wkeMoveToCenter(this->window);
 	wkeSetDragEnable(this->window, false);
 	wkeSetDragDropEnable(this->window, false);
@@ -287,6 +287,7 @@ void Cminiblink_demoDlg::init_miniblink_demo()
 #endif
 
 	wkeShowWindow(this->window, TRUE);
+	ShowWindow(SW_SHOWMAXIMIZED);
 }
 
 void Cminiblink_demoDlg::OnSize(UINT nType, int cx, int cy)

@@ -1,1 +1,1 @@
-MSDEV.EXE miniblink_demo.dsw /make "all - all" /out build_result.txt
+MSDEV_win81.EXE miniblink_demo.dsw /make "all - all" /out build_result.txt

@@ -1,1 +1,1 @@
-MSDEV.EXE wxwork_mail.dsw /make "all - all" /out build_result.txt
+MSDEV_win81.EXE wxwork_mail.dsw /make "all - all" /out build_result.txt

@@ -20,5 +20,6 @@ wxwork_mailDlg.cpp
 xtrace.cpp
 Generating Code...
 Linking...
+LINK : warning LNK4089: all references to "SkinH.dll" discarded by /OPT:REF
 
-wxwork_mail.exe - 0 error(s), 0 warning(s)
+wxwork_mail.exe - 0 error(s), 1 warning(s)

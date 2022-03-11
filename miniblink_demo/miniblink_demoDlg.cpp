@@ -217,7 +217,7 @@ jsValue JS_CALL js_Index2(jsExecState es)
 {
 	jsValue jv = jsEmptyObject(es);
 	wkeUpdate();
-	AfxMessageBox("bingo!");
+	AfxMessageBox("mfc: bingo!");
 	return jv;
 }
 
@@ -238,7 +238,13 @@ jsValue JS_CALL js_msgBox(jsExecState	es)
 
 jsValue JS_CALL js_click(jsExecState	es)
 {
-	AfxMessageBox("bingo!!!");
+	Cminiblink_demoApp* global_var = (Cminiblink_demoApp*) AfxGetApp();
+	Cminiblink_demoDlg* p_main = (Cminiblink_demoDlg*)AfxGetMainWnd();
+
+	wkeRunJS(p_main->window, "alert('run from js: hello world!!!')");
+
+	AfxMessageBox("frun from mfc: bingo!!!");
+
 	return	jsStringW(es, L"0X00");
 }
 

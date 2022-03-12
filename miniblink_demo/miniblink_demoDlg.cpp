@@ -300,14 +300,15 @@ void Cminiblink_demoDlg::init_miniblink_demo()
 	//wkeMoveToCenter(this->window);
 	wkeSetDragEnable(this->window, false);
 	wkeSetDragDropEnable(this->window, false);
-
+	wkeSetCookieEnabled(this->window, false);
+	wkeSetLocalStorageFullPath(this->window, L"c:\\temp");
 #ifdef _DEBUG
 	wkeShowDevtools(this->window,
 		L"file:///d:/cccc2020/CODE/workspace/miniblink/miniblink_demo/Debug/front_end/inspector.html",
 		NULL, NULL);
 #endif
 
-	wkeShowWindow(this->window, TRUE);
+	wkeShowWindow(this->window, true);
 	ShowWindow(SW_SHOWMAXIMIZED);
 }
 

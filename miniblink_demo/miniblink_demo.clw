@@ -13,9 +13,9 @@ Class2=Cminiblink_demoDlg
 Class3=CAboutDlg
 
 ResourceCount=4
-Resource1=IDD_miniblink_demo_DIALOG
+Resource1=IDD_ABOUTBOX
 Resource2=IDR_MAINFRAME
-Resource3=IDD_ABOUTBOX
+Resource3=IDD_miniblink_demo_DIALOG
 Resource4=IDD_DIALOG_BLANK
 
 [CLS:Cminiblink_demoApp]

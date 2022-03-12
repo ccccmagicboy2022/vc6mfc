@@ -9,7 +9,8 @@
 <script>
 function myFunction2()
 {
-	var obj = msgBox("2");
+	let obj = {name: 'aa', age: 20};
+	var obj2 = click1(obj);
 }
 function myFunction() 
 {
@@ -22,10 +23,12 @@ function myFunction()
 	if (Er == 0)
 	{
 		alert("正确");
+		alert(obj.age);
 	}
 	else
 	{
 		alert("错误");
+		alert(obj.age);
 	}
 }
 </script>

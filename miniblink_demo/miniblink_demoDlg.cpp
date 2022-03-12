@@ -201,14 +201,18 @@ jsValue	JS_CALL js_Index1(jsExecState	es)
 	{
 		jsValue jv = jsEmptyObject(es);
 		jsValue jOv1 = jsInt(1);
+		jsValue jOv2 = jsInt(2);
 		jsSet(es, jv, "Error", jOv1);
+		jsSet(es, jv, "age", jOv2);
 		return jv;
 	}
 	else
 	{
 		jsValue jv = jsEmptyObject(es);
 		jsValue jOv1 = jsInt(0);
+		jsValue jOv2 = jsInt(2);
 		jsSet(es, jv, "Error", jOv1);
+		jsSet(es, jv, "age", jOv2);
 		return jv;
 	}
 }
@@ -250,7 +254,18 @@ jsValue JS_CALL js_click(jsExecState	es)
 
 jsValue JS_CALL js_click1(jsExecState	es)
 {
-	AfxMessageBox("bingo!!!111222333");
+	jsValue arg0 = jsArg(es ,0);
+
+	if(jsIsObject(arg0))
+	{
+		AfxMessageBox("mfc: obj bingo");
+		AfxMessageBox(jsToString(es, jsGet(es, arg0, "name")));
+	}
+	else
+	{
+		AfxMessageBox("mfc: not obj");
+	}
+
 	return	jsStringW(es, L"0X00");
 }
 

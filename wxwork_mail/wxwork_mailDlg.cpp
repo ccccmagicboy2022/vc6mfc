@@ -281,6 +281,10 @@ void Cwxwork_mailDlg::init_wxwork_mail()
 	wkeSetDragDropEnable(this->window, true);
 	wkeSetCookieEnabled(this->window, true);
 	wkeSetLocalStorageFullPath(this->window, L"c:\\temp");
+	wkeSetTouchEnabled(this->window, true);
+	wkeSetMemoryCacheEnable(this->window, true);
+	wkeSetMouseEnabled(this->window, true);
+	wkeSetHeadlessEnabled(this->window, false);
 	//final show
 	wkeShowWindow(this->window, TRUE);
 	ShowWindow(SW_SHOWMAXIMIZED);

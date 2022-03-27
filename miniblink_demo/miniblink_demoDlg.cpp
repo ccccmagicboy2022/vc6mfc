@@ -302,6 +302,8 @@ void Cminiblink_demoDlg::init_miniblink_demo()
 	wkeSetDragDropEnable(this->window, false);
 	wkeSetCookieEnabled(this->window, false);
 	wkeSetLocalStorageFullPath(this->window, L"c:\\temp");
+
+	wkeSetDebugConfig(this->window, "antiAlias", "1");
 #ifdef _DEBUG
 	wkeShowDevtools(this->window,
 		L"file:///d:/cccc2020/CODE/workspace/miniblink/miniblink_demo/Debug/front_end/inspector.html",

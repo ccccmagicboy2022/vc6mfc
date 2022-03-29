@@ -331,7 +331,8 @@ void Cminiblink_demoDlg::controls_change_size()
 	{
 		if (window)
 		{
-			wkeResizeWindow(this->window, rc.Width(), rc.Height());
+			//wkeResizeWindow(this->window, rc.Width(), rc.Height());
+			wkeResize(this->window, rc.Width(), rc.Height());
 		}
 	}
 }

@@ -472,48 +472,9 @@ SOURCE=.\XPStyle.manifest
 # End Source File
 # End Target
 # End Project
-# Section miniblink_demo : {17301DA1-C84D-11CF-AE6F-0020AF31CEF9}
-# 	2:5:Class:CNiNumEdit
-# 	2:10:HeaderFile:NiNumEdit.h
-# 	2:8:ImplFile:NiAll.cpp
-# End Section
-# Section miniblink_demo : {85041CC0-E78C-11CE-AE6E-0020AF31CEF9}
-# 	2:5:Class:CNiCursor
-# 	2:10:HeaderFile:NiCursor.h
-# 	2:8:ImplFile:NiAll.cpp
-# End Section
-# Section miniblink_demo : {2AFA9F10-0B6A-11D2-A250-00A024D8324D}
-# 	2:16:DefaultSinkClass:CNiGraph3D
-# 	2:21:DefaultSinkHeaderFile:NiGraph3D.h
-# End Section
-# Section miniblink_demo : {65FD2500-C067-11CE-A88D-0020AF6845F6}
-# 	2:5:Class:CNiTicks
-# 	2:10:HeaderFile:NiTicks.h
-# 	2:8:ImplFile:NiAll.cpp
-# End Section
-# Section miniblink_demo : {E168E231-C75C-11CE-A890-0020AF6845F6}
-# 	2:5:Class:CNiValuepairs
-# 	2:10:HeaderFile:NiValuepairs.h
-# 	2:8:ImplFile:NiAll.cpp
-# End Section
-# Section miniblink_demo : {D940E4C9-6079-11CE-88CB-0020AF6845F6}
-# 	2:5:Class:CNiSlide
-# 	2:10:HeaderFile:NiSlide.h
-# 	2:8:ImplFile:NiAll.cpp
-# End Section
-# Section miniblink_demo : {B8ED1000-53EE-11CE-80BF-0020AF31CEF9}
-# 	2:5:Class:CNiPlot
-# 	2:10:HeaderFile:NiPlot.h
-# 	2:8:ImplFile:NiAll.cpp
-# End Section
-# Section miniblink_demo : {CA90E9C0-6D11-11CF-A543-0020AF1E73B9}
-# 	2:5:Class:CNiPlots
-# 	2:10:HeaderFile:NiPlots.h
-# 	2:8:ImplFile:NiAll.cpp
-# End Section
-# Section miniblink_demo : {E93425C7-2038-11CF-A543-0020AF1E73B9}
-# 	2:5:Class:CNiPointers
-# 	2:10:HeaderFile:NiPointers.h
+# Section miniblink_demo : {E4B1BF00-36CF-11D2-A3A3-00A024D8325C}
+# 	2:5:Class:CNiContour
+# 	2:10:HeaderFile:NiContour.h
 # 	2:8:ImplFile:NiAll.cpp
 # End Section
 # Section miniblink_demo : {E4012F00-1073-11CF-9617-0020AF6845F6}
@@ -521,29 +482,13 @@ SOURCE=.\XPStyle.manifest
 # 	2:10:HeaderFile:NiLabels.h
 # 	2:8:ImplFile:NiAll.cpp
 # End Section
-# Section miniblink_demo : {E4B1BF00-36CF-11D2-A3A3-00A024D8325C}
-# 	2:5:Class:CNiContour
-# 	2:10:HeaderFile:NiContour.h
-# 	2:8:ImplFile:NiAll.cpp
+# Section miniblink_demo : {D940E4C8-6079-11CE-88CB-0020AF6845F6}
+# 	2:16:DefaultSinkClass:CNiSlide
+# 	2:21:DefaultSinkHeaderFile:NiSlide.h
 # End Section
-# Section miniblink_demo : {B86A73A0-15E3-11D2-A39B-00A024D8325C}
-# 	2:5:Class:CNiPlot3D
-# 	2:10:HeaderFile:NiPlot3D.h
-# 	2:8:ImplFile:NiAll.cpp
-# End Section
-# Section miniblink_demo : {2FB97641-230A-11D2-A253-00A024D8324D}
-# 	2:5:Class:CNiLabels3D
-# 	2:10:HeaderFile:NiLabels3D.h
-# 	2:8:ImplFile:NiAll.cpp
-# End Section
-# Section miniblink_demo : {0414ADF0-A0DE-11CE-A870-0020AF6845F6}
-# 	2:5:Class:CNiAxis
-# 	2:10:HeaderFile:NiAxis.h
-# 	2:8:ImplFile:NiAll.cpp
-# End Section
-# Section miniblink_demo : {FD640FD0-322D-11D2-A3A3-00A024D8325C}
-# 	2:5:Class:CNiPlots3D
-# 	2:10:HeaderFile:NiPlots3D.h
+# Section miniblink_demo : {35575F41-E7AD-11CE-AE6E-0020AF31CEF9}
+# 	2:5:Class:CNiCursors
+# 	2:10:HeaderFile:NiCursors.h
 # 	2:8:ImplFile:NiAll.cpp
 # End Section
 # Section miniblink_demo : {D940E4BF-6079-11CE-88CB-0020AF6845F6}
@@ -551,28 +496,24 @@ SOURCE=.\XPStyle.manifest
 # 	2:10:HeaderFile:NiButton.h
 # 	2:8:ImplFile:NiAll.cpp
 # End Section
-# Section miniblink_demo : {35575F41-E7AD-11CE-AE6E-0020AF31CEF9}
-# 	2:5:Class:CNiCursors
-# 	2:10:HeaderFile:NiCursors.h
+# Section miniblink_demo : {FD640FD0-322D-11D2-A3A3-00A024D8325C}
+# 	2:5:Class:CNiPlots3D
+# 	2:10:HeaderFile:NiPlots3D.h
 # 	2:8:ImplFile:NiAll.cpp
 # End Section
-# Section miniblink_demo : {D940E4C8-6079-11CE-88CB-0020AF6845F6}
-# 	2:16:DefaultSinkClass:CNiSlide
-# 	2:21:DefaultSinkHeaderFile:NiSlide.h
-# End Section
-# Section miniblink_demo : {9A41C7E2-9ACD-11CE-A86E-0020AF6845F6}
-# 	2:5:Class:CNiPointer
-# 	2:10:HeaderFile:NiPointer.h
+# Section miniblink_demo : {0414ADF0-A0DE-11CE-A870-0020AF6845F6}
+# 	2:5:Class:CNiAxis
+# 	2:10:HeaderFile:NiAxis.h
 # 	2:8:ImplFile:NiAll.cpp
 # End Section
-# Section miniblink_demo : {6F7EA122-D1A1-11D2-A4EE-00A024D63828}
-# 	2:5:Class:CNiBindings
-# 	2:10:HeaderFile:NiBindings.h
+# Section miniblink_demo : {2FB97641-230A-11D2-A253-00A024D8324D}
+# 	2:5:Class:CNiLabels3D
+# 	2:10:HeaderFile:NiLabels3D.h
 # 	2:8:ImplFile:NiAll.cpp
 # End Section
-# Section miniblink_demo : {D940E4D3-6079-11CE-88CB-0020AF6845F6}
-# 	2:5:Class:CNiKnob
-# 	2:10:HeaderFile:NiKnob.h
+# Section miniblink_demo : {C798BD20-2319-11D2-A253-00A024D8324D}
+# 	2:5:Class:CNiAxis3D
+# 	2:10:HeaderFile:NiAxis3D.h
 # 	2:8:ImplFile:NiAll.cpp
 # End Section
 # Section miniblink_demo : {FD641000-322D-11D2-A3A3-00A024D8325C}
@@ -580,9 +521,19 @@ SOURCE=.\XPStyle.manifest
 # 	2:10:HeaderFile:NiAxes3D.h
 # 	2:8:ImplFile:NiAll.cpp
 # End Section
-# Section miniblink_demo : {C798BD20-2319-11D2-A253-00A024D8324D}
-# 	2:5:Class:CNiAxis3D
-# 	2:10:HeaderFile:NiAxis3D.h
+# Section miniblink_demo : {D940E4D3-6079-11CE-88CB-0020AF6845F6}
+# 	2:5:Class:CNiKnob
+# 	2:10:HeaderFile:NiKnob.h
+# 	2:8:ImplFile:NiAll.cpp
+# End Section
+# Section miniblink_demo : {6F7EA122-D1A1-11D2-A4EE-00A024D63828}
+# 	2:5:Class:CNiBindings
+# 	2:10:HeaderFile:NiBindings.h
+# 	2:8:ImplFile:NiAll.cpp
+# End Section
+# Section miniblink_demo : {9A41C7E2-9ACD-11CE-A86E-0020AF6845F6}
+# 	2:5:Class:CNiPointer
+# 	2:10:HeaderFile:NiPointer.h
 # 	2:8:ImplFile:NiAll.cpp
 # End Section
 # Section miniblink_demo : {BEF6E003-A874-101A-8BBA-00AA00300CAB}
@@ -594,32 +545,32 @@ SOURCE=.\XPStyle.manifest
 # 	2:16:DefaultSinkClass:CNiNumEdit
 # 	2:21:DefaultSinkHeaderFile:NiNumEdit.h
 # End Section
-# Section miniblink_demo : {0EED9920-0DF3-11CF-9617-0020AF6845F6}
-# 	2:5:Class:CNiStatistics
-# 	2:10:HeaderFile:NiStatistics.h
-# 	2:8:ImplFile:NiAll.cpp
-# End Section
-# Section miniblink_demo : {B68DBFAC-16A0-11CE-80BF-0020AF31CEF9}
-# 	2:5:Class:CNiGraph
-# 	2:10:HeaderFile:NiGraph.h
+# Section miniblink_demo : {6F7EA121-D1A1-11D2-A4EE-00A024D63828}
+# 	2:5:Class:CNiBinding
+# 	2:10:HeaderFile:NiBinding.h
 # 	2:8:ImplFile:NiAll.cpp
 # End Section
 # Section miniblink_demo : {D940E4BE-6079-11CE-88CB-0020AF6845F6}
 # 	2:16:DefaultSinkClass:CNiButton
 # 	2:21:DefaultSinkHeaderFile:NiButton.h
 # End Section
-# Section miniblink_demo : {6F7EA121-D1A1-11D2-A4EE-00A024D63828}
-# 	2:5:Class:CNiBinding
-# 	2:10:HeaderFile:NiBinding.h
+# Section miniblink_demo : {B68DBFAC-16A0-11CE-80BF-0020AF31CEF9}
+# 	2:5:Class:CNiGraph
+# 	2:10:HeaderFile:NiGraph.h
+# 	2:8:ImplFile:NiAll.cpp
+# End Section
+# Section miniblink_demo : {0EED9920-0DF3-11CF-9617-0020AF6845F6}
+# 	2:5:Class:CNiStatistics
+# 	2:10:HeaderFile:NiStatistics.h
 # 	2:8:ImplFile:NiAll.cpp
 # End Section
 # Section miniblink_demo : {D940E4D2-6079-11CE-88CB-0020AF6845F6}
 # 	2:16:DefaultSinkClass:CNiKnob
 # 	2:21:DefaultSinkHeaderFile:NiKnob.h
 # End Section
-# Section miniblink_demo : {7BF80981-BF32-101A-8BBB-00AA00300CAB}
-# 	2:5:Class:CNiPicture
-# 	2:10:HeaderFile:NiPicture.h
+# Section miniblink_demo : {37715970-C76B-11CE-A890-0020AF6845F6}
+# 	2:5:Class:CNiValuepair
+# 	2:10:HeaderFile:NiValuepair.h
 # 	2:8:ImplFile:NiAll.cpp
 # End Section
 # Section miniblink_demo : {2AFA9F11-0B6A-11D2-A250-00A024D8324D}
@@ -627,33 +578,14 @@ SOURCE=.\XPStyle.manifest
 # 	2:10:HeaderFile:NiGraph3D.h
 # 	2:8:ImplFile:NiAll.cpp
 # End Section
-# Section miniblink_demo : {37715970-C76B-11CE-A890-0020AF6845F6}
-# 	2:5:Class:CNiValuepair
-# 	2:10:HeaderFile:NiValuepair.h
+# Section miniblink_demo : {7BF80981-BF32-101A-8BBB-00AA00300CAB}
+# 	2:5:Class:CNiPicture
+# 	2:10:HeaderFile:NiPicture.h
 # 	2:8:ImplFile:NiAll.cpp
 # End Section
-# Section miniblink_demo : {B68DBFAB-16A0-11CE-80BF-0020AF31CEF9}
-# 	2:16:DefaultSinkClass:CNiGraph
-# 	2:21:DefaultSinkHeaderFile:NiGraph.h
-# End Section
-# Section miniblink_demo : {14AE3BE4-1A81-11CF-AE6F-0020AF31CEF9}
-# 	2:5:Class:CNiAxes
-# 	2:10:HeaderFile:NiAxes.h
-# 	2:8:ImplFile:NiAll.cpp
-# End Section
-# Section miniblink_demo : {B1AABB61-15B1-11D2-A253-00A024D8324D}
-# 	2:5:Class:CNiLight
-# 	2:10:HeaderFile:NiLight.h
-# 	2:8:ImplFile:NiAll.cpp
-# End Section
-# Section miniblink_demo : {F32E05B0-15B6-11D2-A253-00A024D8324D}
-# 	2:5:Class:CNiLights
-# 	2:10:HeaderFile:NiLights.h
-# 	2:8:ImplFile:NiAll.cpp
-# End Section
-# Section miniblink_demo : {2C36E3E8-478D-11D0-A547-0020AF1E73B9}
-# 	2:5:Class:CNiImage
-# 	2:10:HeaderFile:NiImage.h
+# Section miniblink_demo : {6810EEF1-232D-11D2-BEC7-00A024585300}
+# 	2:5:Class:CNiTicks3D
+# 	2:10:HeaderFile:NiTicks3D.h
 # 	2:8:ImplFile:NiAll.cpp
 # End Section
 # Section miniblink_demo : {9B41D330-36CF-11D2-A3A3-00A024D8325C}
@@ -661,8 +593,76 @@ SOURCE=.\XPStyle.manifest
 # 	2:10:HeaderFile:NiContours.h
 # 	2:8:ImplFile:NiAll.cpp
 # End Section
-# Section miniblink_demo : {6810EEF1-232D-11D2-BEC7-00A024585300}
-# 	2:5:Class:CNiTicks3D
-# 	2:10:HeaderFile:NiTicks3D.h
+# Section miniblink_demo : {F32E05B0-15B6-11D2-A253-00A024D8324D}
+# 	2:5:Class:CNiLights
+# 	2:10:HeaderFile:NiLights.h
+# 	2:8:ImplFile:NiAll.cpp
+# End Section
+# Section miniblink_demo : {B1AABB61-15B1-11D2-A253-00A024D8324D}
+# 	2:5:Class:CNiLight
+# 	2:10:HeaderFile:NiLight.h
+# 	2:8:ImplFile:NiAll.cpp
+# End Section
+# Section miniblink_demo : {14AE3BE4-1A81-11CF-AE6F-0020AF31CEF9}
+# 	2:5:Class:CNiAxes
+# 	2:10:HeaderFile:NiAxes.h
+# 	2:8:ImplFile:NiAll.cpp
+# End Section
+# Section miniblink_demo : {B68DBFAB-16A0-11CE-80BF-0020AF31CEF9}
+# 	2:16:DefaultSinkClass:CNiGraph
+# 	2:21:DefaultSinkHeaderFile:NiGraph.h
+# End Section
+# Section miniblink_demo : {2C36E3E8-478D-11D0-A547-0020AF1E73B9}
+# 	2:5:Class:CNiImage
+# 	2:10:HeaderFile:NiImage.h
+# 	2:8:ImplFile:NiAll.cpp
+# End Section
+# Section miniblink_demo : {2AFA9F10-0B6A-11D2-A250-00A024D8324D}
+# 	2:16:DefaultSinkClass:CNiGraph3D
+# 	2:21:DefaultSinkHeaderFile:NiGraph3D.h
+# End Section
+# Section miniblink_demo : {85041CC0-E78C-11CE-AE6E-0020AF31CEF9}
+# 	2:5:Class:CNiCursor
+# 	2:10:HeaderFile:NiCursor.h
+# 	2:8:ImplFile:NiAll.cpp
+# End Section
+# Section miniblink_demo : {17301DA1-C84D-11CF-AE6F-0020AF31CEF9}
+# 	2:5:Class:CNiNumEdit
+# 	2:10:HeaderFile:NiNumEdit.h
+# 	2:8:ImplFile:NiAll.cpp
+# End Section
+# Section miniblink_demo : {65FD2500-C067-11CE-A88D-0020AF6845F6}
+# 	2:5:Class:CNiTicks
+# 	2:10:HeaderFile:NiTicks.h
+# 	2:8:ImplFile:NiAll.cpp
+# End Section
+# Section miniblink_demo : {B8ED1000-53EE-11CE-80BF-0020AF31CEF9}
+# 	2:5:Class:CNiPlot
+# 	2:10:HeaderFile:NiPlot.h
+# 	2:8:ImplFile:NiAll.cpp
+# End Section
+# Section miniblink_demo : {D940E4C9-6079-11CE-88CB-0020AF6845F6}
+# 	2:5:Class:CNiSlide
+# 	2:10:HeaderFile:NiSlide.h
+# 	2:8:ImplFile:NiAll.cpp
+# End Section
+# Section miniblink_demo : {E168E231-C75C-11CE-A890-0020AF6845F6}
+# 	2:5:Class:CNiValuepairs
+# 	2:10:HeaderFile:NiValuepairs.h
+# 	2:8:ImplFile:NiAll.cpp
+# End Section
+# Section miniblink_demo : {B86A73A0-15E3-11D2-A39B-00A024D8325C}
+# 	2:5:Class:CNiPlot3D
+# 	2:10:HeaderFile:NiPlot3D.h
+# 	2:8:ImplFile:NiAll.cpp
+# End Section
+# Section miniblink_demo : {E93425C7-2038-11CF-A543-0020AF1E73B9}
+# 	2:5:Class:CNiPointers
+# 	2:10:HeaderFile:NiPointers.h
+# 	2:8:ImplFile:NiAll.cpp
+# End Section
+# Section miniblink_demo : {CA90E9C0-6D11-11CF-A543-0020AF1E73B9}
+# 	2:5:Class:CNiPlots
+# 	2:10:HeaderFile:NiPlots.h
 # 	2:8:ImplFile:NiAll.cpp
 # End Section

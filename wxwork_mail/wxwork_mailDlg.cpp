@@ -276,6 +276,7 @@ void Cwxwork_mailDlg::init_wxwork_mail()
 
 	wkeEnableHighDPISupport();
 	wkeSetZoomFactor(this->window, 2.0f);
+	wkeSetDebugConfig(this->window, "antiAlias", "1");
 	//wkeMoveToCenter(this->window);
 	wkeSetDragEnable(this->window, true);
 	wkeSetDragDropEnable(this->window, true);

@@ -1,0 +1,8 @@
+fast-lzma2-master github开源项目
+fast-lzma2:编译fast-lzma2-master所得
+Lzma2Tools：压缩node.dll
+例子：
+压缩node.dll
+Lzma2Tools.exe node.dll node.dll.lzma2
+SetupByMiniBlink:示例项目
+所有代码不要直接用于生产

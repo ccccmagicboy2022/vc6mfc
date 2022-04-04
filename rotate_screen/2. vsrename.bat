@@ -1,0 +1,1 @@
+vsrename.exe rotate_screen rotate_screen .\

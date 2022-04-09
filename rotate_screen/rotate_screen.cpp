@@ -37,6 +37,23 @@ void APP()
 	DEVMODEA	dm;
 	long result;
 	DWORD temp = 0;
+	CString sCmdline = AfxGetApp()->m_lpCmdLine;
+	int n;
+	DWORD lcd_index = 0;
+	CString index_str;
+
+	TRACE(sCmdline);
+	n = sCmdline.ReverseFind(' ');
+
+	if (n != -1)
+	{
+		index_str = sCmdline.Right(sCmdline.GetLength() - n - 1);
+		index_str.MakeUpper();
+		index_str.TrimLeft('\"');
+		index_str.TrimRight('\"');
+		TRACE(index_str);
+		lcd_index = atoi(index_str);
+	}
 
 	hInstUser32 = LoadLibrary("USER32.dll");
     if (!hInstUser32) return; 
@@ -48,9 +65,11 @@ void APP()
 		ZeroMemory(&DispDev, sizeof(DispDev));
 		DispDev.cb = sizeof(DispDev);
 		
-		if (pEnumDisplayDevices(NULL, 0, &DispDev, 0))	//for first lcd 
+		if (pEnumDisplayDevices(NULL, lcd_index, &DispDev, 0))
 		{
-			temp_str.Format("%s", DispDev.DeviceName);
+			temp_str.Format("%s", DispDev.DeviceString);
+			TRACE(temp_str);
+			temp_str.Format("%s", DispDev.DeviceName);	//for setting use
 			TRACE(temp_str);
 
 			ZeroMemory(&dm, sizeof(dm));
@@ -74,7 +93,7 @@ void APP()
 			temp_str.Format("%d", dm.dmDisplayOrientation);
 			TRACE(temp_str);
 
-			result = ChangeDisplaySettingsA(&dm, 0);
+			result = ChangeDisplaySettingsExA ((LPSTR)(LPCTSTR)DispDev.DeviceName, &dm, NULL, 0, NULL);
 
 			if (result == DISP_CHANGE_SUCCESSFUL)
 			{
@@ -83,6 +102,10 @@ void APP()
 			else if (result == DISP_CHANGE_BADMODE)
 			{
 				TRACE("BADMODE!!!");
+			}
+			else
+			{
+				TRACE("BAD!!!");
 			}
 		} 
 		else

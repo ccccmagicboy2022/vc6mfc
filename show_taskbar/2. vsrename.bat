@@ -1,0 +1,1 @@
+vsrename.exe show_taskbar show_taskbar .\

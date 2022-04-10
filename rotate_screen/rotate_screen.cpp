@@ -69,12 +69,12 @@ void APP()
 		{
 			temp_str.Format("%s", DispDev.DeviceString);
 			TRACE(temp_str);
-			temp_str.Format("%s", DispDev.DeviceName);	//for setting use
+			temp_str.Format("%s", DispDev.DeviceName);
 			TRACE(temp_str);
 
 			ZeroMemory(&dm, sizeof(dm));
 			dm.dmSize = sizeof(dm);
-			EnumDisplaySettingsA((LPSTR)(LPCTSTR)temp_str, ENUM_CURRENT_SETTINGS, &dm);
+			EnumDisplaySettingsA((LPSTR)(LPCTSTR)DispDev.DeviceName, ENUM_CURRENT_SETTINGS, &dm);
 
 			temp_str.Format("%d", dm.dmDisplayOrientation);
 			TRACE(temp_str);
@@ -93,7 +93,7 @@ void APP()
 			temp_str.Format("%d", dm.dmDisplayOrientation);
 			TRACE(temp_str);
 
-			result = ChangeDisplaySettingsExA ((LPSTR)(LPCTSTR)DispDev.DeviceName, &dm, NULL, 0, NULL);
+			result = ChangeDisplaySettingsExA((LPSTR)(LPCTSTR)DispDev.DeviceName, &dm, NULL, CDS_UPDATEREGISTRY|CDS_GLOBAL, NULL);
 
 			if (result == DISP_CHANGE_SUCCESSFUL)
 			{

@@ -93,19 +93,33 @@ void APP()
 			temp_str.Format("%d", dm.dmDisplayOrientation);
 			TRACE(temp_str);
 
-			result = ChangeDisplaySettingsExA((LPSTR)(LPCTSTR)DispDev.DeviceName, &dm, NULL, CDS_UPDATEREGISTRY|CDS_GLOBAL, NULL);
+			result = ChangeDisplaySettingsExA((LPSTR)(LPCTSTR)DispDev.DeviceName, &dm, NULL, CDS_TEST, NULL);
 
-			if (result == DISP_CHANGE_SUCCESSFUL)
+			if(result == DISP_CHANGE_FAILED)
 			{
-				TRACE("bingo!!!");
-			}
-			else if (result == DISP_CHANGE_BADMODE)
-			{
-				TRACE("BADMODE!!!");
+				temp_str.Format("Unable to process your request. ");
+				TRACE(temp_str);
 			}
 			else
 			{
-				TRACE("BAD!!!");
+				result = ChangeDisplaySettingsExA((LPSTR)(LPCTSTR)DispDev.DeviceName, &dm, NULL, CDS_UPDATEREGISTRY|CDS_GLOBAL, NULL);
+
+				if (result == DISP_CHANGE_SUCCESSFUL)
+				{
+					TRACE("Success!!!");
+				}
+				else if (result == DISP_CHANGE_RESTART)
+				{
+					TRACE("Need restart!!!");
+				}
+				else if (result == DISP_CHANGE_BADMODE)
+				{
+					TRACE("BADMODE!!!");
+				}
+				else
+				{
+					TRACE("Failed to chanage the resolution!!!");
+				}
 			}
 		} 
 		else

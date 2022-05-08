@@ -1,0 +1,8 @@
+﻿  EdgeBrowserApp.cpp
+C:\Personal Work\C++\EdgeBrowserByAyush\EdgeBrowserApp\EdgeBrowserApp.cpp(174,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  EdgeBrowserAppDlg.cpp
+C:\Personal Work\C++\EdgeBrowserByAyush\EdgeBrowserApp\EdgeBrowserAppDlg.cpp(276,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  stdafx.cpp
+C:\Personal Work\C++\EdgeBrowserByAyush\EdgeBrowserApp\stdafx.cpp(14,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  ViewComponent.cpp
+C:\Personal Work\C++\EdgeBrowserByAyush\EdgeBrowserApp\ViewComponent.cpp(393,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?

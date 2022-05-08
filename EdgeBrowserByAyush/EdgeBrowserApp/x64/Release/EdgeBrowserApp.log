@@ -1,0 +1,9 @@
+﻿  EdgeBrowserApp.cpp
+  EdgeBrowserAppDlg.cpp
+  stdafx.cpp
+  ViewComponent.cpp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 905 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  EdgeBrowserApp.vcxproj -> C:\Personal Work\C++\EdgeBrowserByAyush\x64\Release\EdgeBrowserApp.exe

@@ -1,0 +1,1 @@
+vsrename.exe pyscript_demo pyscript_demo .\

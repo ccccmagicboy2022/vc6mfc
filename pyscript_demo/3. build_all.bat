@@ -1,0 +1,1 @@
+MSDEV_win81.EXE pyscript_demo.dsw /make "all - all" /out build_result.txt

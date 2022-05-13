@@ -1,0 +1,12 @@
+diff --git third_party/libxml/BUILD.gn third_party/libxml/BUILD.gn
+index 24688c1643c77..212edc9a66a8c 100644
+--- third_party/libxml/BUILD.gn
++++ third_party/libxml/BUILD.gn
+@@ -138,6 +138,7 @@ static_library("libxml") {
+     ":libxml_utils",
+     ":xml_reader",
+     ":xml_writer",
++    "//cef:*",
+     "//chromecast/internal",
+     "//testing/libfuzzer/*",
+     "//third_party/blink/renderer/*",

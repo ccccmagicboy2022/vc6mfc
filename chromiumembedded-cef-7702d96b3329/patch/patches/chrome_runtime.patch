@@ -1,0 +1,331 @@
+diff --git chrome/app/chrome_main_delegate.cc chrome/app/chrome_main_delegate.cc
+index 81550e6dca168..c633f6c122f17 100644
+--- chrome/app/chrome_main_delegate.cc
++++ chrome/app/chrome_main_delegate.cc
+@@ -33,6 +33,7 @@
+ #include "base/trace_event/trace_event_impl.h"
+ #include "build/build_config.h"
+ #include "build/chromeos_buildflags.h"
++#include "cef/libcef/features/runtime.h"
+ #include "chrome/browser/chrome_content_browser_client.h"
+ #include "chrome/browser/chrome_resource_bundle_helper.h"
+ #include "chrome/browser/defaults.h"
+@@ -388,6 +389,8 @@ struct MainFunction {
+ 
+ // Initializes the user data dir. Must be called before InitializeLocalState().
+ void InitializeUserDataDir(base::CommandLine* command_line) {
++  if (cef::IsChromeRuntimeEnabled())
++    return;
+ #if BUILDFLAG(IS_WIN)
+   // Reach out to chrome_elf for the truth on the user data directory.
+   // Note that in tests, this links to chrome_elf_test_stubs.
+@@ -702,7 +705,9 @@ void ChromeMainDelegate::PostFieldTrialInitialization() {
+   }
+ 
+ #if BUILDFLAG(IS_WIN)
++  if (!cef::IsChromeRuntimeEnabled()) {
+   SetUpExtendedCrashReporting(is_browser_process);
++  }
+   base::sequence_manager::internal::ThreadControllerPowerMonitor::
+       InitializeOnMainThread();
+   base::InitializePlatformThreadFeatures();
+@@ -1016,6 +1021,7 @@ void ChromeMainDelegate::PreSandboxStartup() {
+   std::string process_type =
+       command_line.GetSwitchValueASCII(switches::kProcessType);
+ 
++  if (!cef::IsChromeRuntimeEnabled()) {
+   crash_reporter::InitializeCrashKeys();
+ 
+ #if BUILDFLAG(IS_POSIX)
+@@ -1026,6 +1032,7 @@ void ChromeMainDelegate::PreSandboxStartup() {
+   InitMacCrashReporter(command_line, process_type);
+   SetUpInstallerPreferences(command_line);
+ #endif
++  }  // !cef::IsChromeRuntimeEnabled()
+ 
+ #if BUILDFLAG(IS_WIN)
+   child_process_logging::Init();
+@@ -1153,6 +1160,7 @@ void ChromeMainDelegate::PreSandboxStartup() {
+         locale;
+   }
+ 
++  if (!cef::IsChromeRuntimeEnabled()) {
+ #if BUILDFLAG(IS_POSIX) && !BUILDFLAG(IS_MAC)
+   // Zygote needs to call InitCrashReporter() in RunZygote().
+   if (process_type != switches::kZygoteProcess) {
+@@ -1185,6 +1193,7 @@ void ChromeMainDelegate::PreSandboxStartup() {
+   // After all the platform Breakpads have been initialized, store the command
+   // line for crash reporting.
+   crash_keys::SetCrashKeysFromCommandLine(command_line);
++  }  // !cef::IsChromeRuntimeEnabled()
+ 
+ #if BUILDFLAG(ENABLE_PDF)
+   MaybePatchGdiGetFontData();
+@@ -1270,6 +1279,7 @@ void ChromeMainDelegate::ZygoteForked() {
+     SetUpProfilingShutdownHandler();
+   }
+ 
++  if (!cef::IsChromeRuntimeEnabled()) {
+   // Needs to be called after we have chrome::DIR_USER_DATA.  BrowserMain sets
+   // this up for the browser process in a different manner.
+   const base::CommandLine* command_line =
+@@ -1286,6 +1296,7 @@ void ChromeMainDelegate::ZygoteForked() {
+ 
+   // Reset the command line for the newly spawned process.
+   crash_keys::SetCrashKeysFromCommandLine(*command_line);
++  }  // !cef::IsChromeRuntimeEnabled()
+ }
+ 
+ #endif  // BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_CHROMEOS)
+diff --git chrome/browser/chrome_browser_main.cc chrome/browser/chrome_browser_main.cc
+index e07874dc5a2fa..e2e4f795e74a2 100644
+--- chrome/browser/chrome_browser_main.cc
++++ chrome/browser/chrome_browser_main.cc
+@@ -52,6 +52,7 @@
+ #include "build/build_config.h"
+ #include "build/chromeos_buildflags.h"
+ #include "cc/base/switches.h"
++#include "cef/libcef/features/runtime.h"
+ #include "chrome/browser/about_flags.h"
+ #include "chrome/browser/active_use_util.h"
+ #include "chrome/browser/after_startup_task_utils.h"
+@@ -1581,11 +1582,13 @@ int ChromeBrowserMainParts::PreMainMessageLoopRunImpl() {
+         browser_process_->local_state());
+   }
+ 
++#if !BUILDFLAG(ENABLE_CEF)
+   // Needs to be done before PostProfileInit, since login manager on CrOS is
+   // called inside PostProfileInit.
+   content::WebUIControllerFactory::RegisterFactory(
+       ChromeWebUIControllerFactory::GetInstance());
+   RegisterChromeUntrustedWebUIConfigs();
++#endif
+ 
+ #if BUILDFLAG(IS_ANDROID)
+   page_info::SetPageInfoClient(new ChromePageInfoClient());
+@@ -1748,11 +1751,14 @@ int ChromeBrowserMainParts::PreMainMessageLoopRunImpl() {
+   // This step is costly and is already measured in
+   // Startup.StartupBrowserCreator_Start.
+   // See the comment above for an explanation of |process_command_line|.
++  // Bypass StartupBrowserCreator with CEF where |GetMainRunLoopInstance()| is
++  // nullptr.
+   const bool started =
++      !GetMainRunLoopInstance() ||
+       !process_command_line ||
+       browser_creator_->Start(parsed_command_line(), base::FilePath(),
+                               profile_info, last_opened_profiles);
+-  if (started) {
++  if (started && GetMainRunLoopInstance()) {
+ // TODO(crbug.com/1052397): Revisit the macro expression once build flag switch
+ // of lacros-chrome is complete.
+ #if BUILDFLAG(IS_WIN) || (BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_CHROMEOS_LACROS))
+@@ -1780,8 +1786,10 @@ int ChromeBrowserMainParts::PreMainMessageLoopRunImpl() {
+ 
+     // Create the RunLoop for MainMessageLoopRun() to use and transfer
+     // ownership of the browser's lifetime to the BrowserProcess.
++    // CEF with the Chrome runtime will create and manage its own RunLoop.
+     DCHECK(!GetMainRunLoopInstance());
+-    GetMainRunLoopInstance() = std::make_unique<base::RunLoop>();
++    if (!cef::IsChromeRuntimeEnabled())
++      GetMainRunLoopInstance() = std::make_unique<base::RunLoop>();
+     browser_process_->SetQuitClosure(
+         GetMainRunLoopInstance()->QuitWhenIdleClosure());
+   }
+diff --git chrome/browser/chrome_browser_main_mac.mm chrome/browser/chrome_browser_main_mac.mm
+index dbd8f7ebe071d..b0f8d3d7bcff9 100644
+--- chrome/browser/chrome_browser_main_mac.mm
++++ chrome/browser/chrome_browser_main_mac.mm
+@@ -16,6 +16,7 @@
+ #include "base/path_service.h"
+ #include "base/strings/sys_string_conversions.h"
+ #include "build/branding_buildflags.h"
++#include "cef/libcef/features/features.h"
+ #import "chrome/browser/app_controller_mac.h"
+ #include "chrome/browser/apps/app_shim/app_shim_listener.h"
+ #include "chrome/browser/browser_process.h"
+@@ -110,6 +111,7 @@ void ChromeBrowserMainPartsMac::PreCreateMainMessageLoop() {
+     }
+   }
+ 
++#if !BUILDFLAG(ENABLE_CEF)
+   // Create the app delegate. This object is intentionally leaked as a global
+   // singleton. It is accessed through -[NSApp delegate].
+   AppController* app_controller = [[AppController alloc] init];
+@@ -118,6 +120,7 @@ void ChromeBrowserMainPartsMac::PreCreateMainMessageLoop() {
+   chrome::BuildMainMenu(NSApp, app_controller,
+                         l10n_util::GetStringUTF16(IDS_PRODUCT_NAME), false);
+   [app_controller mainMenuCreated];
++#endif  // BUILDFLAG(ENABLE_CEF)
+ 
+   PrefService* local_state = g_browser_process->local_state();
+   DCHECK(local_state);
+@@ -177,7 +180,9 @@ void ChromeBrowserMainPartsMac::PostProfileInit(Profile* profile,
+ }
+ 
+ void ChromeBrowserMainPartsMac::DidEndMainMessageLoop() {
++#if !BUILDFLAG(ENABLE_CEF)
+   AppController* appController =
+       base::mac::ObjCCastStrict<AppController>([NSApp delegate]);
+   [appController didEndMainMessageLoop];
++#endif
+ }
+diff --git chrome/browser/chrome_content_browser_client.cc chrome/browser/chrome_content_browser_client.cc
+index 8c14a2053f595..740692cf04b87 100644
+--- chrome/browser/chrome_content_browser_client.cc
++++ chrome/browser/chrome_content_browser_client.cc
+@@ -29,6 +29,7 @@
+ #include "base/values.h"
+ #include "build/build_config.h"
+ #include "build/chromeos_buildflags.h"
++#include "cef/libcef/features/features.h"
+ #include "chrome/browser/accessibility/accessibility_labels_service.h"
+ #include "chrome/browser/accessibility/accessibility_labels_service_factory.h"
+ #include "chrome/browser/after_startup_task_utils.h"
+@@ -1281,6 +1282,8 @@ bool IsTopChromeWebUIURL(const GURL& url) {
+ }  // namespace
+ 
+ ChromeContentBrowserClient::ChromeContentBrowserClient() {
++  keepalive_timer_.reset(new base::OneShotTimer());
++
+ #if BUILDFLAG(ENABLE_PLUGINS)
+   extra_parts_.push_back(new ChromeContentBrowserClientPluginsPart);
+ #endif
+@@ -1306,6 +1309,11 @@ ChromeContentBrowserClient::~ChromeContentBrowserClient() {
+   extra_parts_.clear();
+ }
+ 
++void ChromeContentBrowserClient::CleanupOnUIThread() {
++  DCHECK_CURRENTLY_ON(content::BrowserThread::UI);
++  keepalive_timer_.reset();
++}
++
+ // static
+ void ChromeContentBrowserClient::RegisterLocalStatePrefs(
+     PrefRegistrySimple* registry) {
+@@ -3733,9 +3741,11 @@ void ChromeContentBrowserClient::BrowserURLHandlerCreated(
+                           &search::HandleNewTabURLReverseRewrite);
+ #endif  // BUILDFLAG(IS_ANDROID)
+ 
++#if !BUILDFLAG(ENABLE_CEF)
+   // chrome: & friends.
+   handler->AddHandlerPair(&ChromeContentBrowserClient::HandleWebUI,
+                           &ChromeContentBrowserClient::HandleWebUIReverse);
++#endif
+ }
+ 
+ base::FilePath ChromeContentBrowserClient::GetDefaultDownloadDirectory() {
+@@ -5373,7 +5383,7 @@ void ChromeContentBrowserClient::OnNetworkServiceCreated(
+       network_service);
+ }
+ 
+-void ChromeContentBrowserClient::ConfigureNetworkContextParams(
++bool ChromeContentBrowserClient::ConfigureNetworkContextParams(
+     content::BrowserContext* context,
+     bool in_memory,
+     const base::FilePath& relative_partition_path,
+@@ -5391,6 +5401,8 @@ void ChromeContentBrowserClient::ConfigureNetworkContextParams(
+     network_context_params->user_agent = GetUserAgentBasedOnPolicy(context);
+     network_context_params->accept_language = GetApplicationLocale();
+   }
++
++  return true;
+ }
+ 
+ std::vector<base::FilePath>
+@@ -6262,10 +6274,10 @@ void ChromeContentBrowserClient::OnKeepaliveRequestStarted(
+   const auto now = base::TimeTicks::Now();
+   const auto timeout = GetKeepaliveTimerTimeout(context);
+   keepalive_deadline_ = std::max(keepalive_deadline_, now + timeout);
+-  if (keepalive_deadline_ > now && !keepalive_timer_.IsRunning()) {
++  if (keepalive_deadline_ > now && !keepalive_timer_->IsRunning()) {
+     DVLOG(1) << "Starting a keepalive timer(" << timeout.InSecondsF()
+              << " seconds)";
+-    keepalive_timer_.Start(
++    keepalive_timer_->Start(
+         FROM_HERE, keepalive_deadline_ - now,
+         base::BindOnce(
+             &ChromeContentBrowserClient::OnKeepaliveTimerFired,
+@@ -6284,7 +6296,8 @@ void ChromeContentBrowserClient::OnKeepaliveRequestFinished() {
+   --num_keepalive_requests_;
+   if (num_keepalive_requests_ == 0) {
+     DVLOG(1) << "Stopping the keepalive timer";
+-    keepalive_timer_.Stop();
++    if (keepalive_timer_)
++      keepalive_timer_->Stop();
+     // This deletes the keep alive handle attached to the timer function and
+     // unblock the shutdown sequence.
+   }
+@@ -6392,7 +6405,7 @@ void ChromeContentBrowserClient::OnKeepaliveTimerFired(
+   const auto now = base::TimeTicks::Now();
+   const auto then = keepalive_deadline_;
+   if (now < then) {
+-    keepalive_timer_.Start(
++    keepalive_timer_->Start(
+         FROM_HERE, then - now,
+         base::BindOnce(&ChromeContentBrowserClient::OnKeepaliveTimerFired,
+                        weak_factory_.GetWeakPtr(),
+diff --git chrome/browser/chrome_content_browser_client.h chrome/browser/chrome_content_browser_client.h
+index f0415a5099cdf..b37813c8c43e0 100644
+--- chrome/browser/chrome_content_browser_client.h
++++ chrome/browser/chrome_content_browser_client.h
+@@ -117,6 +117,8 @@ class ChromeContentBrowserClient : public content::ContentBrowserClient {
+ 
+   ~ChromeContentBrowserClient() override;
+ 
++  virtual void CleanupOnUIThread();
++
+   // TODO(https://crbug.com/787567): This file is about calls from content/ out
+   // to chrome/ to get values or notify about events, but both of these
+   // functions are from chrome/ to chrome/ and don't involve content/ at all.
+@@ -558,7 +560,7 @@ class ChromeContentBrowserClient : public content::ContentBrowserClient {
+       override;
+   void OnNetworkServiceCreated(
+       network::mojom::NetworkService* network_service) override;
+-  void ConfigureNetworkContextParams(
++  bool ConfigureNetworkContextParams(
+       content::BrowserContext* context,
+       bool in_memory,
+       const base::FilePath& relative_partition_path,
+@@ -910,7 +912,7 @@ class ChromeContentBrowserClient : public content::ContentBrowserClient {
+ 
+ #if !BUILDFLAG(IS_ANDROID)
+   uint64_t num_keepalive_requests_ = 0;
+-  base::OneShotTimer keepalive_timer_;
++  std::unique_ptr<base::OneShotTimer> keepalive_timer_;
+   base::TimeTicks keepalive_deadline_;
+ #endif
+ 
+diff --git chrome/browser/prefs/browser_prefs.cc chrome/browser/prefs/browser_prefs.cc
+index c2f47de7f3d15..ca406616ebeec 100644
+--- chrome/browser/prefs/browser_prefs.cc
++++ chrome/browser/prefs/browser_prefs.cc
+@@ -11,6 +11,7 @@
+ #include "build/build_config.h"
+ #include "build/chromecast_buildflags.h"
+ #include "build/chromeos_buildflags.h"
++#include "cef/libcef/features/features.h"
+ #include "chrome/browser/about_flags.h"
+ #include "chrome/browser/accessibility/accessibility_labels_service.h"
+ #include "chrome/browser/accessibility/accessibility_ui.h"
+@@ -163,6 +164,10 @@
+ #include "chrome/browser/background/background_mode_manager.h"
+ #endif
+ 
++#if BUILDFLAG(ENABLE_CEF)
++#include "cef/libcef/browser/prefs/browser_prefs.h"
++#endif
++
+ #if BUILDFLAG(ENABLE_EXTENSIONS)
+ #include "chrome/browser/accessibility/animation_policy_prefs.h"
+ #include "chrome/browser/apps/platform_apps/shortcut_manager.h"
+@@ -1300,6 +1305,10 @@ void RegisterProfilePrefs(user_prefs::PrefRegistrySyncable* registry,
+   SessionDataService::RegisterProfilePrefs(registry);
+ #endif
+ 
++#if BUILDFLAG(ENABLE_CEF)
++  browser_prefs::RegisterProfilePrefs(registry);
++#endif
++
+ #if BUILDFLAG(ENABLE_EXTENSIONS)
+   ExtensionWebUI::RegisterProfilePrefs(registry);
+   RegisterAnimationPolicyPrefs(registry);

@@ -1,0 +1,5 @@
+一种USB数据采集器，支持多种语言二次开发：
+
+https://www.smacq.cn/product/usb-5100/
+
+

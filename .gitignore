@@ -18,14 +18,14 @@
 
 # Libraries
 #*.lib
-*.a
-*.la
-*.lo
+#*.a
+#*.la
+#*.lo
 
 # Shared objects (inc. Windows DLLs)
 #*.dll
-*.so
-*.so.*
+#*.so
+#*.so.*
 *.dylib
 
 # Executables

@@ -14,6 +14,7 @@
 			<Item Name="ai_continuous_and_ao_waveform_pc_infinite.vi" Type="VI" URL="../example/ai_continuous_and_ao_waveform_pc_infinite.vi"/>
 			<Item Name="ai_continuous_full.vi" Type="VI" URL="../example/ai_continuous_full.vi"/>
 			<Item Name="ai_continuous_lite.vi" Type="VI" URL="../example/ai_continuous_lite.vi"/>
+			<Item Name="ai_oneshot_ext_trig_in.vi" Type="VI" URL="../example/ai_oneshot_ext_trig_in.vi"/>
 			<Item Name="ai_oneshot_full.vi" Type="VI" URL="../example/ai_oneshot_full.vi"/>
 			<Item Name="ai_oneshot_lite.vi" Type="VI" URL="../example/ai_oneshot_lite.vi"/>
 			<Item Name="ao_dc_voltage.vi" Type="VI" URL="../example/ao_dc_voltage.vi"/>

@@ -1,0 +1,1 @@
+MSDEV.EXE hello_c.dsw /make "all - all" /out build_result.txt

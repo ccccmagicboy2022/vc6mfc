@@ -1,3 +1,4 @@
 1. 使用x64版本的labview 2020 sp1打开
+2. test_fmcw.vi为采集FMCW波形并存储为mat文件的例子
 
 

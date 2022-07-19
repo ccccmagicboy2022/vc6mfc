@@ -49,7 +49,8 @@ Control4=IDOK,button,1342373889
 [DLG:IDD_fmcw2mat_DIALOG]
 Type=1
 Class=Cfmcw2matDlg
-ControlCount=2
+ControlCount=3
 Control1=IDC_BUTTON1,button,1342242816
 Control2=IDC_BUTTON2,button,1342242816
+Control3=IDC_BUTTON3,button,1342242816
 

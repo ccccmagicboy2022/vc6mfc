@@ -85,6 +85,7 @@ BEGIN_MESSAGE_MAP(Cfmcw2matDlg, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON1, OnButton1)
 	ON_WM_CREATE()
 	ON_BN_CLICKED(IDC_BUTTON2, OnButton2)
+	ON_BN_CLICKED(IDC_BUTTON3, OnButton3)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -263,4 +264,50 @@ void Cfmcw2matDlg::PostNcDestroy()
 	debugFree();
 	
 	CDialog::PostNcDestroy();
+}
+
+void Cfmcw2matDlg::OnButton3() 
+{
+	// 1. Open MATLAB engine
+	Engine *matlab = engOpen(NULL);
+	if (matlab == NULL){
+		printf("Can't start MATLAB engine!!!\n");
+		exit(-1);
+	}
+
+	// 2. Call MATLAB engine
+	{
+		// 2.1. Pre-work: capture MATLAB output. Ensure the buffer is always NULL terminated.
+		char buffer[BUFSIZE+1];
+		buffer[BUFSIZE] = '\0';
+		engOutputBuffer(matlab, buffer, BUFSIZE);
+		engEvalString(matlab, "clc;clear;"); // clear all variables (optional)
+
+		// 2.2. Setup inputs: a, b
+		mxArray *a = mxCreateDoubleScalar(2); // assume a=2
+		mxArray *b = mxCreateDoubleScalar(3); // assume b=3
+		engPutVariable(matlab, "a", a); // put into matlab
+		engPutVariable(matlab, "b", b); // put into matlab
+		
+		// 2.3. Call MATLAB
+		engEvalString(matlab, "cd \'C:\\'");
+		//engEvalString(matlab, "[y, z] = myadd2(a, b);");
+		//printf("%s\n", buf); // get error messages or prints (optional)
+
+		// 2.4. Get result: y, z
+		//mxArray *y = engGetVariable(matlab, "y");
+		//mxArray *z = engGetVariable(matlab, "z");
+		//double y_res = mxGetScalar(y);
+		//double z_res = mxGetScalar(z);
+		//printf("y=%f\nz=%f\n", y_res, z_res);
+
+		// 2.5. Release (to all mxArray)
+		mxDestroyArray(a);
+		mxDestroyArray(b);
+		//mxDestroyArray(y);
+		//mxDestroyArray(z);
+	}
+
+	// 3. Close MATLAB engine
+	engClose(matlab);
 }

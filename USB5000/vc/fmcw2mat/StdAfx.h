@@ -25,8 +25,10 @@
 ///matlab·ÃÎÊ
 #pragma comment (lib, "3rd_part/matlab/microsoft/libmx.lib")
 #pragma comment (lib, "3rd_part/matlab/microsoft/libmat.lib")
+#pragma comment (lib, "3rd_part/matlab/microsoft/libeng.lib")
 #include "3rd_part/matlab/include/mat.h"
 #include "3rd_part/matlab/include/engine.h"
+#define BUFSIZE 1000
 
 ///mdebugÊä³ö
 #include "3rd_part/mdebug/mdebug.h"

@@ -86,8 +86,7 @@ CAPTION "关于 fmcw2mat"
 FONT 9, "宋体"
 BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
-    LTEXT           "fmcw2mat 1.0 版",IDC_STATIC,40,10,119,8,
-                    SS_NOPREFIX
+    LTEXT           "fmcw2mat 1.0 版",IDC_STATIC,40,10,119,8,SS_NOPREFIX
     LTEXT           "版权所有 (C) 2021",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "确定",IDOK,178,7,50,14,WS_GROUP
 END
@@ -98,8 +97,9 @@ EXSTYLE WS_EX_APPWINDOW
 CAPTION "fmcw2mat"
 FONT 9, "宋体"
 BEGIN
-    PUSHBUTTON      "Read mat",IDC_BUTTON1,7,48,52,25
+    PUSHBUTTON      "Read mat",IDC_BUTTON1,7,47,52,25
     PUSHBUTTON      "Write mat",IDC_BUTTON2,7,7,52,25
+    PUSHBUTTON      "Call matlab script",IDC_BUTTON3,7,85,93,25
 END
 
 
